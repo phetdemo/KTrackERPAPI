@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>8142b693-987d-4e38-b75f-f3002f9afb64</ProjectGuid>
+    <ProjectGuid>{8142B693-987D-4E38-B75F-F3002F9AFB64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KTrackERP.Service.Interface</RootNamespace>
@@ -31,24 +31,59 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IBoxDetailService.cs" />
+    <Compile Include="IBoxService.cs" />
+    <Compile Include="IM_CarBrandService.cs" />
+    <Compile Include="ICarService.cs" />
+    <Compile Include="IFileService.cs" />
+    <Compile Include="IInstallMentService.cs" />
+    <Compile Include="IJobRequestCloseService.cs" />
+    <Compile Include="IJobRequestService.cs" />
+    <Compile Include="IM_AccessoriesService.cs" />
+    <Compile Include="IM_AmountBatteryService.cs" />
+    <Compile Include="IM_CameraTypeService.cs" />
+    <Compile Include="IM_CarRegisterTypeService.cs" />
+    <Compile Include="IM_DeviceService.cs" />
+    <Compile Include="IM_DeviceTypeService.cs" />
+    <Compile Include="IM_EmployeeService.cs" />
+    <Compile Include="IM_FirmWareService.cs" />
+    <Compile Include="IM_JobStatusService.cs" />
+    <Compile Include="IM_JobTypeService.cs" />
+    <Compile Include="IM_LicenceDriveTypeService.cs" />
+    <Compile Include="IM_LimitSpeedService.cs" />
+    <Compile Include="IM_OptionService.cs" />
+    <Compile Include="IM_PayBillService.cs" />
+    <Compile Include="IM_PayMonthSpacialService.cs" />
+    <Compile Include="IM_PeriodPayService.cs" />
+    <Compile Include="IM_PositionService.cs" />
+    <Compile Include="IM_RentTypeService.cs" />
+    <Compile Include="IM_ServiceChargeService.cs" />
+    <Compile Include="IM_SimTypeService.cs" />
+    <Compile Include="IM_SoundAlertService.cs" />
+    <Compile Include="IM_TimeSendDataService.cs" />
+    <Compile Include="IM_TypeStockService.cs" />
+    <Compile Include="IM_UnitService.cs" />
+    <Compile Include="IM_WareHouseService.cs" />
+    <Compile Include="IServiceChargeService.cs" />
+    <Compile Include="IStockDetailService.cs" />
+    <Compile Include="IStockService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KTrackERP.Entity\KTrackERP.Entity.csproj">
+      <Project>{8C7849F5-67C9-4F55-A511-06629EAAE178}</Project>
+      <Name>KTrackERP.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
