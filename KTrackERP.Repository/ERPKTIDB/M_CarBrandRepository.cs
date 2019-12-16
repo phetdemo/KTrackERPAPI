@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class M_CarBrandRepository : IM_CarBrand
+    public class M_CarBrandRepository : IM_CarBrandRepository
     {
         private readonly ERPKTIDBContext context;
 

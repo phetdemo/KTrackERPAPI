@@ -1,0 +1,14 @@
+﻿using KTrackERP.Entity.KTrackERPDB;
+using System.Collections.Generic;
+
+namespace KTrackERP.Repository.Interface.KTrackERPDB
+{
+    public interface IJobRequestCloseRepository
+    {
+        IList<JobRequestClose> Get();
+        JobRequestClose GetById(int id);
+        bool Insert(JobRequestClose model);
+        bool Update(int id, JobRequestClose model);
+        bool Delete(int id);
+    }
+}

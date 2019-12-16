@@ -1,0 +1,5 @@
+D:\JOKER\KTrackERPAPI\KTrackERP.Entity\bin\Debug\KTrackERP.Entity.dll
+D:\JOKER\KTrackERPAPI\KTrackERP.Entity\bin\Debug\KTrackERP.Entity.pdb
+D:\JOKER\KTrackERPAPI\KTrackERP.Entity\obj\Debug\KTrackERP.Entity.csprojAssemblyReference.cache
+D:\JOKER\KTrackERPAPI\KTrackERP.Entity\obj\Debug\KTrackERP.Entity.dll
+D:\JOKER\KTrackERPAPI\KTrackERP.Entity\obj\Debug\KTrackERP.Entity.pdb

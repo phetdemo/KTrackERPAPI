@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class M_SoundAlertRepository : IM_SoundAlert
+    public class M_SoundAlertRepository : IM_SoundAlertRepository
     {
         private readonly ERPKTIDBContext context;
 

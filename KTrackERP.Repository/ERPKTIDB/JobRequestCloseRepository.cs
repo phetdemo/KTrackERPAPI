@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class JobRequestCloseRepository : IJobRequestClose
+    public class JobRequestCloseRepository : IJobRequestCloseRepository
     {
         private readonly ERPKTIDBContext context;
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class InstallMentRepository : IInstallMent
+    public class InstallMentRepository : IInstallMentRepository
     {
         private readonly ERPKTIDBContext context;
 

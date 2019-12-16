@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class M_LimitSpeedRepository : IM_LimitSpeed
+    public class M_LimitSpeedRepository : IM_LimitSpeedRepository
     {
         private readonly ERPKTIDBContext context;
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
-    public class M_LicenceDriveTypeRepository : IM_LicenceDriveType
+    public class M_LicenceDriveTypeRepository : IM_LicenceDriveTypeRepository
     {
         private readonly ERPKTIDBContext context;
 

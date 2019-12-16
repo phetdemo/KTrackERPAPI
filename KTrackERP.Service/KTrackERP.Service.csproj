@@ -41,8 +41,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoxDetailService.cs" />
     <Compile Include="BoxService.cs" />
+    <Compile Include="CarService.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="InstallMentService.cs" />
+    <Compile Include="JobRequestCloseSerivce.cs" />
+    <Compile Include="JobRequestService.cs" />
+    <Compile Include="M_AccessoriesService.cs" />
+    <Compile Include="M_AmountBatteryService.cs" />
+    <Compile Include="M_CameraTypeService.cs" />
+    <Compile Include="M_CarBrandService.cs" />
+    <Compile Include="M_CarRegisterTypeService.cs" />
+    <Compile Include="M_DeviceService.cs" />
+    <Compile Include="M_DeviceTypeService.cs" />
+    <Compile Include="M_EmployeeService.cs" />
+    <Compile Include="M_FirmWareService.cs" />
+    <Compile Include="M_JobStatusService.cs" />
+    <Compile Include="M_JobTypeService.cs" />
+    <Compile Include="M_LicenceDriveTypeService.cs" />
+    <Compile Include="M_LimitSpeedService.cs" />
+    <Compile Include="M_OptionService.cs" />
+    <Compile Include="M_PayBillService.cs" />
+    <Compile Include="M_PayMonthSpacialService.cs" />
+    <Compile Include="M_PeriodPayService.cs" />
+    <Compile Include="M_PositionService.cs" />
+    <Compile Include="M_RentTypeService.cs" />
+    <Compile Include="M_ServiceChargeService.cs" />
+    <Compile Include="M_SimTypeService.cs" />
+    <Compile Include="M_SoundAlertService.cs" />
+    <Compile Include="M_TimeSendDataService.cs" />
+    <Compile Include="M_TypeStockService.cs" />
+    <Compile Include="M_UnitService.cs" />
+    <Compile Include="M_WareHouseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockDetailService.cs" />
+    <Compile Include="StockService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KTrackERP.Entity\KTrackERP.Entity.csproj">

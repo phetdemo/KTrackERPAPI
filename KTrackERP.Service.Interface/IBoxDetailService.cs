@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Service.Interface
 {
-    interface IBoxDetailService
+    public interface IBoxDetailService
     {
         IList<BoxDetail> Get();
         BoxDetail GetbyId();

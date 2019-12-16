@@ -155,7 +155,42 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BoxController.cs" />
+    <Compile Include="Controllers\BoxDetailController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\M_DeviceController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstallMentController.cs" />
+    <Compile Include="Controllers\JobRequestController.cs" />
+    <Compile Include="Controllers\M_AccessoriesController.cs" />
+    <Compile Include="Controllers\M_AmoutBatteryController.cs" />
+    <Compile Include="Controllers\M_CameraTypeController.cs" />
+    <Compile Include="Controllers\M_CarBrandController.cs" />
+    <Compile Include="Controllers\M_CarRegisterTypeController.cs" />
+    <Compile Include="Controllers\M_DeviceTypeController.cs" />
+    <Compile Include="Controllers\M_EmployeeController.cs" />
+    <Compile Include="Controllers\M_FirmWareController.cs" />
+    <Compile Include="Controllers\M_JobStatusController.cs" />
+    <Compile Include="Controllers\M_JobTypeController.cs" />
+    <Compile Include="Controllers\M_LicenceDriveTypeController.cs" />
+    <Compile Include="Controllers\M_LimitSpeedController.cs" />
+    <Compile Include="Controllers\M_OptionController.cs" />
+    <Compile Include="Controllers\M_PayBillController.cs" />
+    <Compile Include="Controllers\M_PayMonthSpacialController.cs" />
+    <Compile Include="Controllers\M_PeriodPayController.cs" />
+    <Compile Include="Controllers\M_PositionController.cs" />
+    <Compile Include="Controllers\M_RentTypeController.cs" />
+    <Compile Include="Controllers\M_ServiceChargeController.cs" />
+    <Compile Include="Controllers\M_SimTypeController.cs" />
+    <Compile Include="Controllers\M_SoundAlertController.cs" />
+    <Compile Include="Controllers\M_TimeSendDataController.cs" />
+    <Compile Include="Controllers\M_TypeStockController.cs" />
+    <Compile Include="Controllers\M_UnitController.cs" />
+    <Compile Include="Controllers\M_WareHouseController.cs" />
+    <Compile Include="Controllers\ServiceChargeController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
+    <Compile Include="Controllers\StockDetailController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +280,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KTrackERP.Service.Interface\KTrackERP.Service.Interface.csproj">
+      <Project>{8142B693-987D-4E38-B75F-F3002F9AFB64}</Project>
+      <Name>KTrackERP.Service.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KTrackERP.Service\KTrackERP.Service.csproj">
+      <Project>{6FAED173-4F5B-4197-BF84-76991B9E8494}</Project>
+      <Name>KTrackERP.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

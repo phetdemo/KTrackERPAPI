@@ -22,7 +22,7 @@ namespace KTrackERP.Service
 
         public IList<Box> Get()
         {
-            return boxRepository.Get();
+            throw new NotImplementedException();
         }
 
         public Box GetbyId()
