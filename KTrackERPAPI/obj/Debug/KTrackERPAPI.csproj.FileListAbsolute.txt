@@ -67,3 +67,17 @@ D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Service.Interface.pdb
 D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Service.pdb
 D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Entity.pdb
 D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Repository.Interface.pdb
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Repository.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.Abstractions.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.Container.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.WebApi.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\EntityFramework.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Repository.pdb
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\KTrackERP.Repository.dll.config
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.Abstractions.pdb
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.Container.pdb
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\EntityFramework.xml
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\EntityFramework.SqlServer.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\EntityFramework.SqlServer.xml

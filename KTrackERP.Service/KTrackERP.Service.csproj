@@ -46,7 +46,7 @@
     <Compile Include="CarService.cs" />
     <Compile Include="FileService.cs" />
     <Compile Include="InstallMentService.cs" />
-    <Compile Include="JobRequestCloseSerivce.cs" />
+    <Compile Include="JobRequestCloseService.cs" />
     <Compile Include="JobRequestService.cs" />
     <Compile Include="M_AccessoriesService.cs" />
     <Compile Include="M_AmountBatteryService.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="M_UnitService.cs" />
     <Compile Include="M_WareHouseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceChargeService.cs" />
     <Compile Include="StockDetailService.cs" />
     <Compile Include="StockService.cs" />
   </ItemGroup>

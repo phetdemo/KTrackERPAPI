@@ -22,7 +22,8 @@ namespace KTrackERP.Service
 
         public IList<M_Unit> Get()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return m_UnitRepository.Get();
         }
 
         public M_Unit GetById(int id)

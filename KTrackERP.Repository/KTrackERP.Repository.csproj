@@ -64,7 +64,7 @@
     <Compile Include="ERPKTIDB\JobRequestRepository.cs" />
     <Compile Include="ERPKTIDB\M_AccessoriesRepository.cs" />
     <Compile Include="ERPKTIDB\M_AmoutBatteryRepository.cs" />
-    <Compile Include="ERPKTIDB\M_CarRegisterType.cs" />
+    <Compile Include="ERPKTIDB\M_CarRegisterTypeRepository.cs" />
     <Compile Include="ERPKTIDB\M_DeviceRepository.cs" />
     <Compile Include="ERPKTIDB\M_DeviceTypeRepository.cs" />
     <Compile Include="ERPKTIDB\M_EmployeeRepository.cs" />
