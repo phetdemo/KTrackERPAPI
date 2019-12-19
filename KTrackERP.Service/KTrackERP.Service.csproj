@@ -48,6 +48,8 @@
     <Compile Include="InstallMentService.cs" />
     <Compile Include="JobRequestCloseService.cs" />
     <Compile Include="JobRequestService.cs" />
+    <Compile Include="Master_DService.cs" />
+    <Compile Include="Master_HService.cs" />
     <Compile Include="M_AccessoriesService.cs" />
     <Compile Include="M_AmountBatteryService.cs" />
     <Compile Include="M_CameraTypeService.cs" />

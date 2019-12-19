@@ -50,6 +50,9 @@ namespace KTrackERP.Repository
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Stock_Detail> Stock_Detail { get; set; }
 
+        public DbSet<Master_D> Master_D { get; set; }
+        public DbSet<Master_H> Master_H { get; set; }
+
 
 
 

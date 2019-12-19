@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="IBoxDetailService.cs" />
     <Compile Include="IBoxService.cs" />
+    <Compile Include="IMaster_DService.cs" />
+    <Compile Include="IMaster_HService.cs" />
     <Compile Include="IM_CarBrandService.cs" />
     <Compile Include="ICarService.cs" />
     <Compile Include="IFileService.cs" />

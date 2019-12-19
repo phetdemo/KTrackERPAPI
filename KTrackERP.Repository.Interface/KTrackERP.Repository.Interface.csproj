@@ -48,6 +48,8 @@
     <Compile Include="KTrackERPDB\IInstallMentRepository.cs" />
     <Compile Include="KTrackERPDB\IJobRequestRepository.cs" />
     <Compile Include="KTrackERPDB\IJobRequestCloseRepository.cs" />
+    <Compile Include="KTrackERPDB\IMaster_DRepository.cs" />
+    <Compile Include="KTrackERPDB\IMaster_HRepository.cs" />
     <Compile Include="KTrackERPDB\IM_AccessoriesRepository.cs" />
     <Compile Include="KTrackERPDB\IM_AmountBatteryRepository.cs" />
     <Compile Include="KTrackERPDB\IM_CameraTypeRepository.cs" />
