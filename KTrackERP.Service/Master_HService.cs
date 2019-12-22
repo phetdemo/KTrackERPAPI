@@ -22,7 +22,7 @@ namespace KTrackERP.Service
 
         public IList<Master_H> Get()
         {
-            throw new NotImplementedException();
+            return master_HRepository.Get();
         }
 
         public Master_H GetbyId()

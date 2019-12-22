@@ -1,5 +1,4 @@
 ﻿using KTrackERP.Service.Interface;
-using System.Collections.Generic;
 using System.Web.Http;
 
 namespace KTrackERPAPI.Controllers
@@ -14,9 +13,9 @@ namespace KTrackERPAPI.Controllers
         }
 
         // GET: api/Master_H
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(master_HService.Get());
         }
 
         // GET: api/Master_H/5

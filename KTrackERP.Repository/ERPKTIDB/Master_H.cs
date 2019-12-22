@@ -1,6 +1,7 @@
 ﻿using KTrackERP.Repository.Interface.KTrackERPDB;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KTrackERP.Repository.ERPKTIDB
 {
@@ -20,7 +21,7 @@ namespace KTrackERP.Repository.ERPKTIDB
 
         public IList<Entity.KTrackERPDB.Master_H> Get()
         {
-            throw new NotImplementedException();
+            return context.Master_H.ToList();
         }
 
         public Entity.KTrackERPDB.Master_H GetById(int id)
