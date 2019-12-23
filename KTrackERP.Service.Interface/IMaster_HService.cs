@@ -8,7 +8,6 @@ namespace KTrackERP.Service.Interface
         IList<Master_H> Get();
         Master_H GetbyId();
         bool Insert(Master_H model);
-        bool Update(int id, Master_H model);
         bool Delete(int id);
     }
 }

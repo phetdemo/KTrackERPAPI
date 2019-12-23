@@ -32,12 +32,8 @@ namespace KTrackERP.Service
 
         public bool Insert(Master_H model)
         {
-            throw new NotImplementedException();
+            return master_HRepository.Insert(model);
         }
 
-        public bool Update(int id, Master_H model)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

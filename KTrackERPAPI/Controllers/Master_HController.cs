@@ -1,4 +1,5 @@
-﻿using KTrackERP.Service.Interface;
+﻿using KTrackERP.Entity.KTrackERPDB;
+using KTrackERP.Service.Interface;
 using System.Web.Http;
 
 namespace KTrackERPAPI.Controllers
@@ -25,13 +26,9 @@ namespace KTrackERPAPI.Controllers
         }
 
         // POST: api/Master_H
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(Master_H obj)
         {
-        }
-
-        // PUT: api/Master_H/5
-        public void Put(int id, [FromBody]string value)
-        {
+            return Ok(master_HService.Insert(obj));
         }
 
         // DELETE: api/Master_H/5
