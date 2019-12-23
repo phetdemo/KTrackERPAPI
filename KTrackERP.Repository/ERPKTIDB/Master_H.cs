@@ -1,6 +1,7 @@
 ﻿using KTrackERP.Repository.Interface.KTrackERPDB;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace KTrackERP.Repository.ERPKTIDB
@@ -31,12 +32,31 @@ namespace KTrackERP.Repository.ERPKTIDB
 
         public bool Insert(Entity.KTrackERPDB.Master_H model)
         {
-            throw new NotImplementedException();
-        }
+            bool pass = false;
+            try
+            {
+                if (model != null)
+                {
+                    var update = context.Master_H.Where(x => x.prmtyp == model.prmtyp).FirstOrDefault();
+                    if (update != null)
+                    {
+                        context.Entry(model).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        context.Master_H.Add(model);
+                    }
 
-        public bool Update(int id, Entity.KTrackERPDB.Master_H model)
-        {
-            throw new NotImplementedException();
+                    context.SaveChanges();
+                    pass = true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return pass;
         }
     }
 }

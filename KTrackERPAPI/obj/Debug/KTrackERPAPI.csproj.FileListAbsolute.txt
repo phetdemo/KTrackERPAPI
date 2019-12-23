@@ -167,3 +167,6 @@ C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERPAPI\bin\Unity.Container
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERPAPI\bin\Antlr3.Runtime.pdb
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERPAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERPAPI\obj\Debug\KTrackERPAPI.csproj.CopyComplete
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\System.Web.Cors.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\System.Web.Http.Cors.dll
+D:\JOKER\KTrackERPAPI\KTrackERPAPI\bin\System.Web.Http.Cors.xml
