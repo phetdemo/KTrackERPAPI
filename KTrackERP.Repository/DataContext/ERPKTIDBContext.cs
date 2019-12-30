@@ -9,6 +9,7 @@ namespace KTrackERP.Repository
     {
         public ERPKTIDBContext() : base("name=ERPKTIDBContext")
         {
+            //base.Configuration.ProxyCreationEnabled = false;
             Database.SetInitializer<ERPKTIDBContext>(null);
         }
         public DbSet<Box> Box { get; set; }

@@ -51,6 +51,7 @@
     <Compile Include="KTrackERPDB\JobRequestClose.cs" />
     <Compile Include="KTrackERPDB\Master_D.cs" />
     <Compile Include="KTrackERPDB\Master_H.cs" />
+    <Compile Include="KTrackERPDB\ModelMaster_H.cs" />
     <Compile Include="KTrackERPDB\M_Accessories.cs" />
     <Compile Include="KTrackERPDB\M_AmoutBattery.cs" />
     <Compile Include="KTrackERPDB\M_CameraType.cs" />

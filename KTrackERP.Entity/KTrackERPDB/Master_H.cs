@@ -12,7 +12,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string thdesc { get; set; }
         public string endesc { get; set; }
         public string remark { get; set; }
-        public string recsts { get; set; }
+        public bool recsts { get; set; }
         public DateTime? upddte { get; set; }
         public string updby { get; set; }
         public DateTime? instdte { get; set; }

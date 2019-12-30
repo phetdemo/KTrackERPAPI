@@ -1,7 +1,6 @@
 ﻿using KTrackERP.Repository.Interface.KTrackERPDB;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace KTrackERP.Repository.ERPKTIDB
@@ -25,9 +24,24 @@ namespace KTrackERP.Repository.ERPKTIDB
             return context.Master_H.ToList();
         }
 
-        public Entity.KTrackERPDB.Master_H GetById(int id)
+        public object GetById(string id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var masterh = (from m in context.Master_H
+                               where m.prmtyp == id
+                               select new { m }
+                               ).FirstOrDefault();
+                return masterh;
+
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+
+
         }
 
         public bool Insert(Entity.KTrackERPDB.Master_H model)
@@ -40,7 +54,10 @@ namespace KTrackERP.Repository.ERPKTIDB
                     var update = context.Master_H.Where(x => x.prmtyp == model.prmtyp).FirstOrDefault();
                     if (update != null)
                     {
-                        context.Entry(model).State = EntityState.Modified;
+                        update.thdesc = model.thdesc;
+                        update.endesc = model.endesc;
+                        update.recsts = model.recsts;
+                        update.remark = model.remark;
                     }
                     else
                     {
@@ -52,8 +69,9 @@ namespace KTrackERP.Repository.ERPKTIDB
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                var joke = e.Message.ToString();
                 return false;
             }
             return pass;
