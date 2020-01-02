@@ -1,6 +1,7 @@
-﻿using KTrackERP.Service.Interface;
-using System.Collections.Generic;
+﻿using KTrackERP.Entity.KTrackERPDB;
+using KTrackERP.Service.Interface;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace KTrackERPAPI.Controllers
 {
@@ -14,20 +15,22 @@ namespace KTrackERPAPI.Controllers
         }
 
         // GET: api/Master_D
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(master_DService.Get());
         }
 
         // GET: api/Master_D/5
-        public string Get(int id)
+        public IHttpActionResult GetById(string id)
         {
-            return "value";
+            return Ok(master_DService.GetbyId(id));
         }
 
         // POST: api/Master_D
-        public void Post([FromBody]string value)
+        [ResponseType(typeof(Master_D))]
+        public IHttpActionResult PostMaster_H(Master_D master_D)
         {
+            return Ok(master_DService.Insert(master_D));
         }
 
         // PUT: api/Master_D/5

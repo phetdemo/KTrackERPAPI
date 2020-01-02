@@ -22,22 +22,19 @@ namespace KTrackERP.Service
 
         public IList<Master_D> Get()
         {
-            throw new NotImplementedException();
+            return master_DRepository.Get();
         }
 
-        public Master_D GetbyId()
+        public Master_D GetbyId(string id)
         {
-            throw new NotImplementedException();
+            return master_DRepository.GetById(id);
         }
 
         public bool Insert(Master_D model)
         {
-            throw new NotImplementedException();
+            return master_DRepository.Insert(model);
         }
 
-        public bool Update(int id, Master_D model)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

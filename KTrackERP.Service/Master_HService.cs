@@ -25,9 +25,9 @@ namespace KTrackERP.Service
             return master_HRepository.Get();
         }
 
-        public Master_H GetbyId()
+        public object GetbyId(string id)
         {
-            throw new NotImplementedException();
+            return master_HRepository.GetById(id);
         }
 
         public bool Insert(Master_H model)

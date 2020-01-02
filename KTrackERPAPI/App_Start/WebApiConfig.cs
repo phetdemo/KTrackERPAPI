@@ -8,7 +8,7 @@ namespace KTrackERPAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*");
             config.EnableCors(cors);
 
             // Web API routes

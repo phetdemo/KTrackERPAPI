@@ -6,3 +6,11 @@ D:\JOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Reposit
 D:\JOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.csproj.CopyComplete
 D:\JOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.dll
 D:\JOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\bin\Debug\KTrackERP.Repository.Interface.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\bin\Debug\KTrackERP.Repository.Interface.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\bin\Debug\KTrackERP.Entity.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\bin\Debug\KTrackERP.Entity.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.csproj.CopyComplete
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository.Interface\obj\Debug\KTrackERP.Repository.Interface.pdb
