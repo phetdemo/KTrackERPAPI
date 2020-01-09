@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace KTrackERPAPI.Models
+﻿namespace KTrackERPAPI.Models
 {
     public class AccountModel
     {
@@ -13,6 +8,7 @@ namespace KTrackERPAPI.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string LoggedOn { get; set; }
+        public bool Active { get; set; }
         public string[] Roles { get; set; }
     }
 }
