@@ -24,13 +24,13 @@ namespace KTrackERP.Entity.KTrackERPDB
         public DateTime? StartContactDate { get; set; }
         public DateTime? EndContactDate { get; set; }
         public DateTime? AppointmentDateTime { get; set; }
-        public string CustomerSupportFlag { get; set; }
-        public string HardWareFlag { get; set; }
-        public string SoftWareFlag { get; set; }
-        public string AccountFlag { get; set; }
+        public bool CustomerSupportFlag { get; set; }
+        public bool HardWareFlag { get; set; }
+        public bool SoftWareFlag { get; set; }
+        public bool AccountFlag { get; set; }
         public int? SaleID { get; set; }
-        public string CostFlag { get; set; }
-        public string CostOtherFlag { get; set; }
+        public bool CostFlag { get; set; }
+        public bool CostOtherFlag { get; set; }
         public decimal? CostOtherDetail { get; set; }
         public int? SaleCoordinatorID { get; set; }
         public int? JobStatus { get; set; }
