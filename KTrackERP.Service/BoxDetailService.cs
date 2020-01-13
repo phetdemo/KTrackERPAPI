@@ -25,14 +25,14 @@ namespace KTrackERP.Service
             throw new NotImplementedException();
         }
 
-        public BoxDetail GetbyId()
+        public object GetbyId(int id)
         {
-            throw new NotImplementedException();
+            return boxDetailRepository.GetById(id);
         }
 
         public bool Insert(BoxDetail model)
         {
-            throw new NotImplementedException();
+            return boxDetailRepository.Insert(model);
         }
 
         public bool Update(int id, BoxDetail model)

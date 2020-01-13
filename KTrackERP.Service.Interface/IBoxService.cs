@@ -6,7 +6,7 @@ namespace KTrackERP.Service.Interface
     public interface IBoxService
     {
         IList<Box> Get();
-        Box GetbyId();
+        object GetbyId(int id);
         bool Insert(Box model);
         bool Update(int id, Box model);
         bool Delete(int id);

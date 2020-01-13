@@ -6,7 +6,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
     public interface ICarRepository
     {
         IList<Car> Get();
-        Car GetById(int id);
+        object GetById(int id);
         bool Insert(Car model);
         bool Update(int id, Car model);
         bool Delete(int id);
