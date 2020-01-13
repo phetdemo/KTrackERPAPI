@@ -79,6 +79,20 @@ namespace KTrackERP.Repository.ERPKTIDB
             }
         }
 
+        public IList<Entity.KTrackERPDB.Master_D> GetMasterType(string prmtyp)
+        {
+            try
+            {
+                return context.Master_D.Where(x => x.prmtyp == prmtyp && x.prmref == "KT" && x.recsts == true).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+
 
     }
 }

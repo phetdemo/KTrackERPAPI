@@ -34,6 +34,10 @@ namespace KTrackERP.Service
         {
             return master_DRepository.Insert(model);
         }
+        public IList<Master_D> GetMasterType(string prmtyp)
+        {
+            return master_DRepository.GetMasterType(prmtyp);
+        }
 
 
     }

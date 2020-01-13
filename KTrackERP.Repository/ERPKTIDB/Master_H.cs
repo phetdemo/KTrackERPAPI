@@ -58,9 +58,12 @@ namespace KTrackERP.Repository.ERPKTIDB
                         update.endesc = model.endesc;
                         update.recsts = model.recsts;
                         update.remark = model.remark;
+                        update.upddte = DateTime.Now;
+                        update.updby = model.updby;
                     }
                     else
                     {
+                        model.instdte = DateTime.Now;
                         context.Master_H.Add(model);
                     }
 
@@ -72,7 +75,7 @@ namespace KTrackERP.Repository.ERPKTIDB
             catch (Exception e)
             {
                 var joke = e.Message.ToString();
-                return false;
+                return pass;
             }
             return pass;
         }

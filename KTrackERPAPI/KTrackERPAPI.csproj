@@ -254,6 +254,7 @@
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockDetailController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WorklistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

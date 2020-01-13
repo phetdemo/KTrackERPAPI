@@ -6,7 +6,7 @@ namespace KTrackERP.Service.Interface
     public interface IJobRequestService
     {
         IList<JobRequest> Get();
-        JobRequest GetById(int id);
+        object GetById(int id);
         bool Insert(JobRequest model);
         bool Update(int id, JobRequest model);
         bool Delete(int id);

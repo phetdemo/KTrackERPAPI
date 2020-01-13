@@ -5,6 +5,7 @@ using System.Web.Http.Description;
 
 namespace KTrackERPAPI.Controllers
 {
+    [RoutePrefix("api/Master_D")]
     public class Master_DController : ApiController
     {
         private readonly IMaster_DService master_DService;
@@ -13,6 +14,7 @@ namespace KTrackERPAPI.Controllers
         {
             this.master_DService = master_DService;
         }
+
 
         // GET: api/Master_D
         public IHttpActionResult Get()
@@ -41,6 +43,12 @@ namespace KTrackERPAPI.Controllers
         // DELETE: api/Master_D/5
         public void Delete(int id)
         {
+        }
+        [Route("GetMasterType/{prmtyp}")]
+        [HttpGet]
+        public IHttpActionResult GetMasterType(string prmtyp)
+        {
+            return Ok(master_DService.GetMasterType(prmtyp));
         }
     }
 }

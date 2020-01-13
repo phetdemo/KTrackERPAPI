@@ -25,9 +25,9 @@ namespace KTrackERP.Service
             throw new NotImplementedException();
         }
 
-        public JobRequest GetById(int id)
+        public object GetById(int id)
         {
-            throw new NotImplementedException();
+            return jobRequestRepository.GetById(id);
         }
 
         public bool Insert(JobRequest model)

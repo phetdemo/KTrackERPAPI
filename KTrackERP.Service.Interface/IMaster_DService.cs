@@ -11,5 +11,6 @@ namespace KTrackERP.Service.Interface
         bool Insert(Master_D model);
 
         bool Delete(int id);
+        IList<Master_D> GetMasterType(string prmtyp);
     }
 }
