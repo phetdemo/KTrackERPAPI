@@ -32,7 +32,7 @@ namespace KTrackERP.Service
 
         public bool Insert(JobRequest model)
         {
-            throw new NotImplementedException();
+            return jobRequestRepository.Insert(model);
         }
 
         public bool Update(int id, JobRequest model)
