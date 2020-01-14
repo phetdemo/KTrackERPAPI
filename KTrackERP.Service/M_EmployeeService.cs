@@ -22,17 +22,17 @@ namespace KTrackERP.Service
 
         public IList<M_Employee> Get()
         {
-            throw new NotImplementedException();
+            return m_EmployeeRepository.Get();
         }
 
-        public M_Employee GetById(int id)
+        public object GetById(int id)
         {
-            throw new NotImplementedException();
+            return m_EmployeeRepository.GetById(id);
         }
 
         public bool Insert(M_Employee model)
         {
-            throw new NotImplementedException();
+            return m_EmployeeRepository.Insert(model);
         }
 
         public bool Update(int id, M_Employee model)

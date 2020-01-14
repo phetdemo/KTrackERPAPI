@@ -1,6 +1,7 @@
-﻿using KTrackERP.Service.Interface;
-using System.Collections.Generic;
+﻿using KTrackERP.Entity.KTrackERPDB;
+using KTrackERP.Service.Interface;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace KTrackERPAPI.Controllers
 {
@@ -14,20 +15,22 @@ namespace KTrackERPAPI.Controllers
         }
 
         // GET: api/M_Employee
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(m_EmployeeService.Get());
         }
 
         // GET: api/M_Employee/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(m_EmployeeService.GetById(id));
         }
 
         // POST: api/M_Employee
-        public void Post([FromBody]string value)
+        [ResponseType(typeof(M_Employee))]
+        public IHttpActionResult PostM_Employee(M_Employee obj)
         {
+            return Ok(m_EmployeeService.Insert(obj));
         }
 
         // PUT: api/M_Employee/5

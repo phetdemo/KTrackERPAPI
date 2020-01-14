@@ -17,7 +17,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string Mobile { get; set; }
         public int? PositionID { get; set; }
         public int? DivisionID { get; set; }
-        public string Active { get; set; }
+        public bool Active { get; set; }
         public DateTime? InsDateTime { get; set; }
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }

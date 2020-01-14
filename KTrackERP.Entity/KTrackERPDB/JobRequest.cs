@@ -24,6 +24,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public DateTime? StartContactDate { get; set; }
         public DateTime? EndContactDate { get; set; }
         public DateTime? AppointmentDateTime { get; set; }
+        public string AppointmentDetail { get; set; }
         public bool CustomerSupportFlag { get; set; }
         public bool HardWareFlag { get; set; }
         public bool SoftWareFlag { get; set; }
@@ -33,6 +34,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public bool CostOtherFlag { get; set; }
         public decimal? CostOtherDetail { get; set; }
         public int? SaleCoordinatorID { get; set; }
+        public string Informer { get; set; }
         public int? JobStatus { get; set; }
         public string ApproveBy { get; set; }
         public DateTime? ApproveDateTime { get; set; }

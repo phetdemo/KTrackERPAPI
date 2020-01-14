@@ -54,6 +54,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                     {
                         update.AccountFlag = model.AccountFlag;
                         update.AppointmentDateTime = model.AppointmentDateTime;
+                        update.AppointmentDetail = model.AppointmentDetail;
                         update.CompanyName = model.CompanyName;
                         update.ContactFax = model.ContactFax;
                         update.ContactMobile = model.ContactMobile;
@@ -75,6 +76,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                         update.Remark = model.Remark;
                         update.RentTypeID = model.RentTypeID;
                         update.SaleCoordinatorID = model.SaleCoordinatorID;
+                        update.Informer = model.Informer;
                         update.SaleID = model.SaleID;
                         update.SoftWareFlag = model.SoftWareFlag;
                         update.StartContactDate = model.StartContactDate;
