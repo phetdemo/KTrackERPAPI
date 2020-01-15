@@ -33,7 +33,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                               where m.JobRequestNoID == id
                               select new { m }
                                ).FirstOrDefault();
-                return jobreq;
+                return new { jobreq };
 
             }
             catch (Exception ex)
@@ -99,6 +99,27 @@ namespace KTrackERP.Repository.ERPKTIDB
                 return false;
             }
             return true;
+        }
+        public object GetJobWorkList(int jobstatusID)
+        {
+            var jobreq = from job in context.JobRequest
+                         join jobtype in context.Master_D on job.JobRequestType equals jobtype.prmid into asjobtype
+                         join jobstatus in context.Master_D on job.JobStatus equals jobstatus.prmid into asjobstatus
+                         from jobtype in asjobtype.DefaultIfEmpty()
+                         from jobstatus in asjobstatus.DefaultIfEmpty()
+                         where job.JobStatus == jobstatusID
+                         select new
+                         {
+                             job.JobRequestNoID,
+                             job.JobRequestNo,
+                             job.CompanyName,
+                             job.InsBy,
+                             jobstatusth = jobstatus.thdesc,
+                             jobtypeth = jobtype.thdesc
+                         };
+
+
+            return jobreq;
         }
 
         public bool Update(int id, JobRequest model)

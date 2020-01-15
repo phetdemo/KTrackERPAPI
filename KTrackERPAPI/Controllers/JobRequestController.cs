@@ -6,6 +6,7 @@ using System.Web.Http.Description;
 
 namespace KTrackERPAPI.Controllers
 {
+    [RoutePrefix("api/JobRequest")]
     public class JobRequestController : ApiController
     {
         private readonly IJobRequestService jobRequestService;
@@ -42,6 +43,14 @@ namespace KTrackERPAPI.Controllers
         // DELETE: api/JobRequest/5
         public void Delete(int id)
         {
+        }
+
+
+        [Route("GetWorklist/{jobstatusID}")]
+        [HttpGet]
+        public IHttpActionResult GetWorklist(int jobstatusID)
+        {
+            return Ok(jobRequestService.GetJobWorkList(jobstatusID));
         }
     }
 }

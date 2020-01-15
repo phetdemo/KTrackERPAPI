@@ -10,5 +10,6 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         bool Insert(JobRequest model);
         bool Update(int id, JobRequest model);
         bool Delete(int id);
+        object GetJobWorkList(int jobstatusID);
     }
 }

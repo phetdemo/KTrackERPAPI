@@ -39,5 +39,9 @@ namespace KTrackERP.Service
         {
             throw new NotImplementedException();
         }
+        public object GetJobWorkList(int jobstatusID)
+        {
+            return jobRequestRepository.GetJobWorkList(jobstatusID);
+        }
     }
 }
