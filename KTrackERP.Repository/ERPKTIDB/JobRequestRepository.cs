@@ -31,7 +31,44 @@ namespace KTrackERP.Repository.ERPKTIDB
             {
                 var jobreq = (from m in context.JobRequest
                               where m.JobRequestNoID == id
-                              select new { m }
+                              select new
+                              {
+                                  m.JobRequestNoID,
+                                  m.JobRequestNo,
+                                  m.CompanyName,
+                                  m.ContactName,
+                                  m.ContactTel,
+                                  m.ContactMobile,
+                                  m.ContactFax,
+                                  m.Location,
+                                  m.Remark,
+                                  m.ProcessDateTime,
+                                  m.OtherDetail,
+                                  m.JobRequestType,
+                                  m.RentTypeID,
+                                  m.StartContactDate,
+                                  m.EndContactDate,
+                                  m.AppointmentDateTime,
+                                  m.AppointmentDetail,
+                                  m.CustomerSupportFlag,
+                                  m.HardWareFlag,
+                                  m.SoftWareFlag,
+                                  m.AccountFlag,
+                                  m.SaleID,
+                                  m.CostFlag,
+                                  m.CostOtherFlag,
+                                  m.CostOtherDetail,
+                                  m.SaleCoordinatorID,
+                                  m.Informer,
+                                  m.JobStatus,
+                                  m.ApproveBy,
+                                  m.ApproveDateTime,
+                                  m.JobRef,
+                                  m.InsDateTime,
+                                  m.InsBy,
+                                  m.UpdDateTime,
+                                  m.UpdBy
+                              }
                                ).FirstOrDefault();
                 return new { jobreq };
 
