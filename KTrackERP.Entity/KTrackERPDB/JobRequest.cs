@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -43,6 +44,13 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }
         public string UpdBy { get; set; }
+
+
+        [NotMapped]
+        public ICollection<Car> Car { get; set; }
+        [NotMapped]
+        public ICollection<Box> Box { get; set; }
+
 
     }
 }
