@@ -71,7 +71,88 @@ namespace KTrackERP.Repository.ERPKTIDB
                                   m.UpdBy
                               }
                                ).FirstOrDefault();
-                return new { jobreq };
+
+                var car = (from c in context.Car
+                           join brand in context.Master_D on c.BrandID equals brand.prmid into asbrand
+                           join cartype in context.Master_D on c.CarTypeID equals cartype.prmid into ascartype
+                           join licencedrive in context.Master_D on c.LicenceDriveTypeID equals licencedrive.prmid into aslicencedrive
+                           from brand in asbrand.DefaultIfEmpty()
+                           from cartype in ascartype.DefaultIfEmpty()
+                           from licencedrive in aslicencedrive.DefaultIfEmpty()
+                           where c.JobRequestNoID == id
+                           select new
+                           {
+                               c.CarID,
+                               c.JobRequestNoID,
+                               c.LicensePlate,
+                               c.BrandID,
+                               c.CarTypeID,
+                               c.LicenceDriveTypeID,
+                               c.Chassis,
+                               c.Wheel,
+                               c.Shaft,
+                               c.Tire,
+                               c.NewLicensePlate,
+                               c.NewBrandID,
+                               c.NewCarTypeID,
+                               c.NewChassis,
+                               c.ServiceReportBookNo,
+                               c.ServiceRportNo,
+                               c.NewServiceReportBookNo,
+                               c.NewServiceRportNo,
+                               c.Remark,
+                               c.InsDateTime,
+                               c.InsBy,
+                               c.UpdDateTime,
+                               c.UpdBy,
+                               BrandName = brand.thdesc,
+                               CarTypeName = cartype.thdesc,
+                               LicenceDriveTypeName = licencedrive.thdesc
+                           }).ToList();
+
+                var carID = car.Select(x => x.CarID).FirstOrDefault();
+
+                var box = (from boxs in context.Box
+                           join cars in context.Car on boxs.CarID equals cars.CarID into ascars
+                           join simtype in context.Master_D on boxs.SimTypeID equals simtype.prmid into assimtype
+                           join device in context.Master_D on boxs.DeviceID equals device.prmid into asdevice
+                           from cars in ascars.DefaultIfEmpty()
+                           from simtype in assimtype.DefaultIfEmpty()
+                           from device in asdevice.DefaultIfEmpty()
+                           where boxs.CarID == carID
+                           select new
+                           {
+                               boxs.BoxID,
+                               boxs.CarID,
+                               boxs.DeviceID,
+                               boxs.SimTypeID,
+                               boxs.FirmWareID,
+                               boxs.TimeSendDataID,
+                               boxs.ElectricVoltID,
+                               boxs.BatteryID,
+                               boxs.LimitSpeedID,
+                               boxs.SoundAlertID,
+                               boxs.SerialNumber,
+                               boxs.SerialDVRNumber,
+                               boxs.AmountCameraDVR,
+                               boxs.Username,
+                               boxs.Password,
+                               boxs.VID,
+                               boxs.Port,
+                               boxs.IP,
+                               boxs.APN,
+                               boxs.warrantydateStart,
+                               boxs.warrantydateEnd,
+                               boxs.InsDateTime,
+                               boxs.InsBy,
+                               boxs.UpdDateTime,
+                               boxs.UpdBy,
+                               LicensePlateName = cars.LicensePlate,
+                               DeviceName = device.thdesc,
+                               SimTypeName = simtype.thdesc
+                           }).ToList();
+
+                return new { jobreq, car, box };
 
             }
             catch (Exception ex)

@@ -58,7 +58,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                         update.CarID = model.CarID;
                         update.DeviceID = model.DeviceID;
                         update.ElectricVoltID = model.ElectricVoltID;
-                        update.FirmWstringareID = model.FirmWstringareID;
+                        update.FirmWareID = model.FirmWareID;
                         update.IP = model.IP;
                         update.LimitSpeedID = model.LimitSpeedID;
                         update.Password = model.Password;

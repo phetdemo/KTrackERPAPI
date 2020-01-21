@@ -84,7 +84,7 @@ namespace KTrackERP.Repository.ERPKTIDB
             try
             {
 
-                var data = context.Master_D.Where(x => x.prmtyp == prmtyp && x.prmref == "KT" && x.recsts == true).ToList();
+                var data = context.Master_D.Where(x => x.prmtyp == prmtyp && x.prmref == "KT" && x.recsts == true).OrderBy(a => a.thdesc).ToList();
                 return data;
             }
             catch (Exception ex)
