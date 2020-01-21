@@ -12,7 +12,7 @@ namespace KTrackERP.Entity
         public int? CarID { get; set; }
         public int? DeviceID { get; set; }
         public int? SimTypeID { get; set; }
-        public int? FirmWstringareID { get; set; }
+        public int? FirmWareID { get; set; }
         public int? TimeSendDataID { get; set; }
         public int? ElectricVoltID { get; set; }
         public int? BatteryID { get; set; }

@@ -47,9 +47,9 @@ namespace KTrackERP.Entity.KTrackERPDB
 
 
         [NotMapped]
-        public ICollection<Car> Car { get; set; }
+        public List<Car> Car { get; set; }
         [NotMapped]
-        public ICollection<Box> Box { get; set; }
+        public List<Box> Box { get; set; }
 
 
     }
