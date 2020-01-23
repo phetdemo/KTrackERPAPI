@@ -52,6 +52,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                     var update = context.Car.Where(x => x.CarID == model.CarID).FirstOrDefault();
                     if (update != null)
                     {
+                        update.JobRequestNoID = model.JobRequestNoID;
                         update.BrandID = model.BrandID;
                         update.CarTypeID = model.CarTypeID;
                         update.Chassis = model.Chassis;
