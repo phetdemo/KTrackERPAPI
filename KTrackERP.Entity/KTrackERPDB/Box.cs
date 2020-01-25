@@ -9,6 +9,7 @@ namespace KTrackERP.Entity
     {
         [Key]
         public int BoxID { get; set; }
+        public int JobRequestNoID { get; set; }
         public int? CarID { get; set; }
         public int? DeviceID { get; set; }
         public int? SimTypeID { get; set; }
@@ -25,7 +26,7 @@ namespace KTrackERP.Entity
         public string Password { get; set; }
         public int? VID { get; set; }
         public int? Port { get; set; }
-        public int? IP { get; set; }
+        public string IP { get; set; }
         public int? APN { get; set; }
         public DateTime? warrantydateStart { get; set; }
         public DateTime? warrantydateEnd { get; set; }
