@@ -27,7 +27,7 @@ namespace KTrackERP.Entity
         public int? VID { get; set; }
         public int? Port { get; set; }
         public string IP { get; set; }
-        public int? APN { get; set; }
+        public string APN { get; set; }
         public DateTime? warrantydateStart { get; set; }
         public DateTime? warrantydateEnd { get; set; }
         public DateTime? InsDateTime { get; set; }

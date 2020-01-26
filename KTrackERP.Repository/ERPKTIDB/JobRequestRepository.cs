@@ -110,7 +110,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                LicenceDriveTypeName = licencedrive.thdesc
                            }).ToList();
 
-                var jobID = car.Select(x => x.JobRequestNoID).FirstOrDefault();
+                //var jobID = car.Select(x => x.JobRequestNoID).FirstOrDefault();
 
                 var box = (from boxs in context.Box
                            join cars in context.Car on boxs.CarID equals cars.CarID into ascars
@@ -119,10 +119,11 @@ namespace KTrackERP.Repository.ERPKTIDB
                            from cars in ascars.DefaultIfEmpty()
                            from simtype in assimtype.DefaultIfEmpty()
                            from device in asdevice.DefaultIfEmpty()
-                           where boxs.JobRequestNoID == jobID
+                           where boxs.JobRequestNoID == id
                            select new
                            {
                                boxs.BoxID,
+                               boxs.JobRequestNoID,
                                boxs.CarID,
                                boxs.DeviceID,
                                boxs.SimTypeID,
@@ -151,6 +152,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                DeviceName = device.thdesc,
                                SimTypeName = simtype.thdesc
                            }).ToList();
+
 
                 return new { jobreq, car, box };
 
@@ -275,9 +277,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     context.SaveChanges();
                                     break;
                                 }
-
                             }
-
                         }
                         context.SaveChanges();
                         dbTransaction.Commit();
@@ -312,6 +312,49 @@ namespace KTrackERP.Repository.ERPKTIDB
 
 
             return jobreq;
+        }
+        public string GenerateJobCode(string jobtype)
+        {
+            string jobcode = "";
+            string datecode = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                switch (jobcode)
+                {
+                    case "Install":
+                        var codeMax = (from j in context.JobRequest
+                                       orderby j.JobRequestNoID descending
+                                       select new
+                                       {
+                                           j.JobRequestNo
+                                       }).FirstOrDefault();
+                        if (codeMax.ToString() != "")
+                        {
+                            jobcode = string.Format("JRN{0}{1}", datecode, "0001");
+                        }
+                        else
+                        {
+                            int maxruning = Convert.ToInt32(codeMax.ToString().Substring(codeMax.ToString().Length - 4, 4)) + 1;
+                            string resultcode = string.Format("0000{0}", maxruning);
+                            jobcode = string.Format("JRN{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                        }
+
+                        break;
+                    case "Remove":
+
+                        break;
+                    case "Swapping":
+
+                        break;
+
+                }
+            }
+            catch (Exception e)
+            {
+                var joke = e.Message.ToString();
+                return "";
+            }
+            return jobcode;
         }
 
         public bool Update(int id, JobRequest model)
