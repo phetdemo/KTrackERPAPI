@@ -43,5 +43,9 @@ namespace KTrackERP.Service
         {
             return jobRequestRepository.GetJobWorkList(jobstatusID);
         }
+        public object GenerateJobCode(string jobtype)
+        {
+            return jobRequestRepository.GenerateJobCode(jobtype);
+        }
     }
 }

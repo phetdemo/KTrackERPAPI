@@ -222,7 +222,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatecar.Remark = item.Remark;
                                     updatecar.Shaft = item.Shaft;
                                     updatecar.Tire = item.Tire;
-                                    updatecar.UpdBy = item.UpdBy;
+                                    updatecar.UpdBy = model.UpdBy;
                                     updatecar.UpdDateTime = DateTime.Now;
                                     updatecar.Wheel = item.Wheel;
                                 }
@@ -248,7 +248,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.SimTypeID = item.SimTypeID;
                                     updatebox.SoundAlertID = item.SoundAlertID;
                                     updatebox.TimeSendDataID = item.TimeSendDataID;
-                                    updatebox.UpdBy = item.UpdBy;
+                                    updatebox.UpdBy = model.UpdBy;
                                     updatebox.UpdDateTime = DateTime.Now;
                                     updatebox.Username = item.Username;
                                     updatebox.VID = item.VID;
@@ -260,19 +260,24 @@ namespace KTrackERP.Repository.ERPKTIDB
                         else
                         {
                             model.InsDateTime = DateTime.Now;
+                            var jobtype = context.Master_D.Where(x => x.prmid == model.JobRequestType).Select(x => x.endesc).FirstOrDefault();
+                            model.JobRequestNo = GenerateJobCodeDB(jobtype);
                             context.JobRequest.Add(model);
                             context.SaveChanges();
 
                             for (int i = 0; i < model.Car.Count; i++)
                             {
                                 model.Car[i].JobRequestNoID = model.JobRequestNoID;
+                                model.Car[i].InsBy = model.InsBy;
                                 model.Car[i].InsDateTime = DateTime.Now;
                                 context.Car.Add(model.Car[i]);
                                 context.SaveChanges();
                                 for (int k = i; k < model.Box.Count;)
                                 {
+                                    model.Box[k].JobRequestNoID = model.JobRequestNoID;
                                     model.Box[k].CarID = model.Car[i].CarID;
                                     model.Box[k].InsDateTime = DateTime.Now;
+                                    model.Box[k].InsBy = model.InsBy;
                                     context.Box.Add(model.Box[k]);
                                     context.SaveChanges();
                                     break;
@@ -313,38 +318,23 @@ namespace KTrackERP.Repository.ERPKTIDB
 
             return jobreq;
         }
-        public string GenerateJobCode(string jobtype)
+        public object GenerateJobCode(string jobtype)
         {
             string jobcode = "";
             string datecode = DateTime.Now.ToString("yyyyMMdd");
             try
             {
-                switch (jobcode)
+
+                switch (jobtype)
                 {
                     case "Install":
-                        var codeMax = (from j in context.JobRequest
-                                       orderby j.JobRequestNoID descending
-                                       select new
-                                       {
-                                           j.JobRequestNo
-                                       }).FirstOrDefault();
-                        if (codeMax.ToString() != "")
-                        {
-                            jobcode = string.Format("JRN{0}{1}", datecode, "0001");
-                        }
-                        else
-                        {
-                            int maxruning = Convert.ToInt32(codeMax.ToString().Substring(codeMax.ToString().Length - 4, 4)) + 1;
-                            string resultcode = string.Format("0000{0}", maxruning);
-                            jobcode = string.Format("JRN{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
-                        }
-
+                        jobcode = string.Format("JRN{0}{1}", datecode, "####");
                         break;
                     case "Remove":
-
+                        jobcode = string.Format("JRM{0}{1}", datecode, "####");
                         break;
                     case "Swapping":
-
+                        jobcode = string.Format("JSW{0}{1}", datecode, "####");
                         break;
 
                 }
@@ -352,7 +342,69 @@ namespace KTrackERP.Repository.ERPKTIDB
             catch (Exception e)
             {
                 var joke = e.Message.ToString();
-                return "";
+                return null;
+            }
+            return jobcode;
+        }
+        private string GenerateJobCodeDB(string jobtype)
+        {
+            string jobcode = "";
+            string datecode = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+                var codeMax = (from j in context.JobRequest
+                               where j.JobRequestNo.Contains(datecode)
+                               orderby j.JobRequestNoID descending
+                               select new
+                               {
+                                   j.JobRequestNo
+                               }).FirstOrDefault();
+                switch (jobtype)
+                {
+                    case "Install":
+
+                        if (codeMax == null)
+                        {
+                            jobcode = string.Format("JRN{0}{1}", datecode, "0001");
+                        }
+                        else
+                        {
+                            int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
+                            string resultcode = string.Format("0000{0}", maxruning);
+                            jobcode = string.Format("JRN{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                        }
+                        break;
+                    case "Remove":
+                        if (codeMax == null)
+                        {
+                            jobcode = string.Format("JRM{0}{1}", datecode, "0001");
+                        }
+                        else
+                        {
+                            int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
+                            string resultcode = string.Format("0000{0}", maxruning);
+                            jobcode = string.Format("JRM{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                        }
+                        break;
+                    case "Swapping":
+                        if (codeMax == null)
+                        {
+                            jobcode = string.Format("JWS{0}{1}", datecode, "0001");
+                        }
+                        else
+                        {
+                            int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
+                            string resultcode = string.Format("0000{0}", maxruning);
+                            jobcode = string.Format("JSW{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                        }
+                        break;
+
+                }
+            }
+            catch (Exception e)
+            {
+                var joke = e.Message.ToString();
+                return null;
             }
             return jobcode;
         }
