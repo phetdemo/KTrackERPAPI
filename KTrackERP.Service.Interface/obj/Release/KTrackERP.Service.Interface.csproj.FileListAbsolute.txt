@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\bin\Release\KTrackERP.Service.Interface.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\bin\Release\KTrackERP.Service.Interface.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\bin\Release\KTrackERP.Entity.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\bin\Release\KTrackERP.Entity.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\obj\Release\KTrackERP.Service.Interface.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\obj\Release\KTrackERP.Service.Interface.csproj.CopyComplete
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\obj\Release\KTrackERP.Service.Interface.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Service.Interface\obj\Release\KTrackERP.Service.Interface.pdb

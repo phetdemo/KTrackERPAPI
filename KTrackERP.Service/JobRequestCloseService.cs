@@ -25,7 +25,7 @@ namespace KTrackERP.Service
             throw new NotImplementedException();
         }
 
-        public JobRequestClose GetById(int id)
+        public object GetById(int id)
         {
             throw new NotImplementedException();
         }

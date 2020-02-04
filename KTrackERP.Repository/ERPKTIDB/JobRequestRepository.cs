@@ -256,6 +256,22 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.warrantydateStart = item.warrantydateStart;
                                 }
                             }
+                            foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
+                            {
+                                Car c = context.Car.Find(Convert.ToInt32(carid));
+                                if(c != null)
+                                {
+                                    context.Car.Remove(c);
+                                }
+                            }
+                            foreach (string boxid in model.BoxIDs.Split(',').Where(x => x != "" || x != null))
+                            {
+                                Box c = context.Box.Find(Convert.ToInt32(boxid));
+                                if (c != null)
+                                {
+                                    context.Box.Remove(c);
+                                }
+                            }
                         }
                         else
                         {

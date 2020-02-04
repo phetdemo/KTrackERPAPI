@@ -6,7 +6,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
     public interface IJobRequestCloseRepository
     {
         IList<JobRequestClose> Get();
-        JobRequestClose GetById(int id);
+        object GetById(int id);
         bool Insert(JobRequestClose model);
         bool Update(int id, JobRequestClose model);
         bool Delete(int id);

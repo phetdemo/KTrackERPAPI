@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Repository.dll.config
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Repository.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Repository.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\EntityFramework.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Entity.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Repository.Interface.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Entity.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\KTrackERP.Repository.Interface.pdb
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\EntityFramework.xml
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\obj\Release\KTrackERP.Repository.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\obj\Release\KTrackERP.Repository.csproj.CopyComplete
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\obj\Release\KTrackERP.Repository.dll
+C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Repository\obj\Release\KTrackERP.Repository.pdb
