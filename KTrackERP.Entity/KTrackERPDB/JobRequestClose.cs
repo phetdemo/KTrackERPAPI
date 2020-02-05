@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,6 +12,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         [Key]
         public int JobRequestCloseID { get; set; }
         public int? JobRequestNoID { get; set; }
+        public string JobRequestCloseNo { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTel { get; set; }
@@ -31,6 +33,16 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }
         public string UpdBy { get; set; }
+
+        [NotMapped]
+        public List<Box> Box { get; set; }
+        [NotMapped]
+        public List<Car> Car { get; set; }
+        [NotMapped]
+        public List<InstallMent> InstallMent { get; set; }
+        [NotMapped]
+        public List<ServiceCharge> ServiceCharge { get; set; }
+
 
     }
 }
