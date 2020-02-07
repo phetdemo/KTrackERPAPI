@@ -155,6 +155,9 @@ namespace KTrackERP.Repository.ERPKTIDB
                             update.ContactName = model.ContactName;
                             update.ContactTel = model.ContactTel;
                             update.DocDeliverAddress = model.DocDeliverAddress;
+                            update.ConditionBill = model.ConditionBill;
+                            update.ConditionPayBill = model.ConditionPayBill;
+                            update.PeriodPay = model.PeriodPay;
                             update.Location = model.Location;
                             update.Remark = model.Remark;
                             update.serviceChargeNextDate = model.serviceChargeNextDate;

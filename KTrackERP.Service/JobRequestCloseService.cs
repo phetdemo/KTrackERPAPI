@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Service
 {
-    [rou]
+    
     public class JobRequestCloseService : IJobRequestCloseService
     {
         private readonly IJobRequestCloseRepository jobRequestCloseRepository;
