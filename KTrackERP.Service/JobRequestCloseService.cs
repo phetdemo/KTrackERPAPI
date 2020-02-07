@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace KTrackERP.Service
 {
+    [rou]
     public class JobRequestCloseService : IJobRequestCloseService
     {
         private readonly IJobRequestCloseRepository jobRequestCloseRepository;
@@ -32,7 +33,11 @@ namespace KTrackERP.Service
 
         public bool Insert(JobRequestClose model)
         {
-            throw new NotImplementedException();
+            return jobRequestCloseRepository.Insert(model);
+        }
+        public object GenerateJobCode()
+        {
+            return jobRequestCloseRepository.GenerateJobCode();
         }
 
         public bool Update(int id, JobRequestClose model)

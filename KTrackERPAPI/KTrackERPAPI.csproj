@@ -217,6 +217,7 @@
     <Compile Include="Controllers\BoxController.cs" />
     <Compile Include="Controllers\BoxDetailController.cs" />
     <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\JobRequestCloseController.cs" />
     <Compile Include="Controllers\Master_DController.cs" />
     <Compile Include="Controllers\Master_HController.cs" />
     <Compile Include="Controllers\M_DeviceController.cs" />

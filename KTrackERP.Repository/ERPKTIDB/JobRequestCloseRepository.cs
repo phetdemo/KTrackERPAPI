@@ -270,6 +270,22 @@ namespace KTrackERP.Repository.ERPKTIDB
         {
             throw new NotImplementedException();
         }
+        public object GenerateJobCode()
+        {
+            string jobcode = "";
+            string datecode = DateTime.Now.ToString("yyyyMMdd");
+            try
+            {
+
+                jobcode = string.Format("JRC{0}{1}", datecode, "####");
+            }
+            catch (Exception e)
+            {
+                var joke = e.Message.ToString();
+                return null;
+            }
+            return jobcode;
+        }
         private string GenerateJobCodeDB()
         {
             string jobcode = "";
@@ -286,13 +302,13 @@ namespace KTrackERP.Repository.ERPKTIDB
 
                 if (codeMax == null)
                 {
-                    jobcode = string.Format("JC{0}{1}", datecode, "0001");
+                    jobcode = string.Format("JRC{0}{1}", datecode, "0001");
                 }
                 else
                 {
                     int maxruning = Convert.ToInt32(codeMax.JobRequestCloseNo.ToString().Substring(codeMax.JobRequestCloseNo.ToString().Length - 4, 4)) + 1;
                     string resultcode = string.Format("0000{0}", maxruning);
-                    jobcode = string.Format("JC{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                    jobcode = string.Format("JRC{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
                 }
 
             }
