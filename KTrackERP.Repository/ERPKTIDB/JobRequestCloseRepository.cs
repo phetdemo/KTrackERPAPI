@@ -58,6 +58,46 @@ namespace KTrackERP.Repository.ERPKTIDB
                                    m.UpdBy
                                }
                                ).FirstOrDefault();
+                var box = (from boxs in context.Box
+                           join cars in context.Car on boxs.CarID equals cars.CarID into ascars
+                           join simtype in context.Master_D on boxs.SimTypeID equals simtype.prmid into assimtype
+                           join device in context.Master_D on boxs.DeviceID equals device.prmid into asdevice
+                           from cars in ascars.DefaultIfEmpty()
+                           from simtype in assimtype.DefaultIfEmpty()
+                           from device in asdevice.DefaultIfEmpty()
+                           where boxs.JobRequestNoID == id
+                           select new
+                           {
+                               boxs.BoxID,
+                               boxs.JobRequestNoID,
+                               boxs.CarID,
+                               boxs.DeviceID,
+                               boxs.SimTypeID,
+                               boxs.FirmWareID,
+                               boxs.TimeSendDataID,
+                               boxs.ElectricVoltID,
+                               boxs.BatteryID,
+                               boxs.LimitSpeedID,
+                               boxs.SoundAlertID,
+                               boxs.SerialNumber,
+                               boxs.SerialDVRNumber,
+                               boxs.AmountCameraDVR,
+                               boxs.Username,
+                               boxs.Password,
+                               boxs.VID,
+                               boxs.Port,
+                               boxs.IP,
+                               boxs.APN,
+                               boxs.warrantydateStart,
+                               boxs.warrantydateEnd,
+                               boxs.InsDateTime,
+                               boxs.InsBy,
+                               boxs.UpdDateTime,
+                               boxs.UpdBy,
+                               LicensePlateName = cars.LicensePlate,
+                               DeviceName = device.thdesc,
+                               SimTypeName = simtype.thdesc
+                           }).ToList();
                 var installments = (from i in context.InstallMent
                                     where i.JobRequestCloseID == id
                                     select new
@@ -124,14 +164,144 @@ namespace KTrackERP.Repository.ERPKTIDB
                                }
                                ).ToList();
 
-                return new { jobreqc, installments, car, service };
+                return new { jobreqc, installments, car, service, box };
             }
             catch (Exception ex)
             {
                 var joke = ex.Message;
                 return null;
             }
+        }
+        public object GetJobRequestInformationByJobReqID(int id)
+        {
+            try
+            {
+                var jobreq = (from m in context.JobRequest
+                              where m.JobRequestNoID == id
+                              select new
+                              {
+                                  m.JobRequestNoID,
+                                  m.JobRequestNo,
+                                  m.CompanyName,
+                                  m.ContactName,
+                                  m.ContactTel,
+                                  m.ContactMobile,
+                                  m.ContactFax,
+                                  m.Location,
+                                  m.Remark,
+                                  m.ProcessDateTime,
+                                  m.OtherDetail,
+                                  m.JobRequestType,
+                                  m.RentTypeID,
+                                  m.StartContactDate,
+                                  m.EndContactDate,
+                                  m.AppointmentDateTime,
+                                  m.AppointmentDetail,
+                                  m.CustomerSupportFlag,
+                                  m.HardWareFlag,
+                                  m.SoftWareFlag,
+                                  m.AccountFlag,
+                                  m.SaleID,
+                                  m.CostFlag,
+                                  m.CostOtherFlag,
+                                  m.CostOtherDetail,
+                                  m.SaleCoordinatorID,
+                                  m.Informer,
+                                  m.JobStatus,
+                                  m.ApproveBy,
+                                  m.ApproveDateTime,
+                                  m.JobRef,
+                                  m.InsDateTime,
+                                  m.InsBy,
+                                  m.UpdDateTime,
+                                  m.UpdBy
+                              }
+                               ).FirstOrDefault();
+                return new { jobreq };
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+        public object GetCarAndBoxByJobReqByID(int id)
+        {
+            try
+            {
+                var car = (from c in context.Car
+                           where c.JobRequestNoID == id
+                           select new
+                           {
+                               c.CarID,
+                               c.JobRequestNoID,
+                               c.LicensePlate,
+                               c.BrandID,
+                               c.CarTypeID,
+                               c.LicenceDriveTypeID,
+                               c.Chassis,
+                               c.Wheel,
+                               c.Shaft,
+                               c.Tire,
+                               c.NewLicensePlate,
+                               c.NewBrandID,
+                               c.NewCarTypeID,
+                               c.NewChassis,
+                               c.ServiceReportBookNo,
+                               c.ServiceRportNo,
+                               c.NewServiceReportBookNo,
+                               c.NewServiceRportNo,
+                               c.Remark,
+                               c.InsDateTime,
+                               c.InsBy,
+                               c.UpdDateTime,
+                               c.UpdBy,
+                           })
+                           .ToList();
+                var box = (from b in context.Box
+                           join c in context.Car on b.CarID equals c.CarID into ascar
+                           from c in ascar.DefaultIfEmpty()
+                           where b.JobRequestNoID == id
+                           select new
+                           {
+                               b.BoxID,
+                               b.JobRequestNoID,
+                               b.CarID,
+                               b.DeviceID,
+                               b.SimTypeID,
+                               b.FirmWareID,
+                               b.TimeSendDataID,
+                               b.ElectricVoltID,
+                               b.BatteryID,
+                               b.LimitSpeedID,
+                               b.SoundAlertID,
+                               b.SerialNumber,
+                               b.SerialDVRNumber,
+                               b.AmountCameraDVR,
+                               b.Username,
+                               b.Password,
+                               b.VID,
+                               b.Port,
+                               b.IP,
+                               b.APN,
+                               b.warrantydateStart,
+                               b.warrantydateEnd,
+                               b.InsDateTime,
+                               b.InsBy,
+                               b.UpdDateTime,
+                               b.UpdBy,
+                               LicensePlateName = c.LicensePlate
+                           }
+                           ).ToList();
 
+
+                return new { car, box };
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
         }
 
         public bool Insert(JobRequestClose model)

@@ -44,5 +44,13 @@ namespace KTrackERP.Service
         {
             throw new NotImplementedException();
         }
+        public object GetCarAndBoxByJobReqByID(int id)
+        {
+            return jobRequestCloseRepository.GetCarAndBoxByJobReqByID(id);
+        }
+        public object GetJobRequestInformationByJobReqID(int id)
+        {
+            return jobRequestCloseRepository.GetJobRequestInformationByJobReqID(id);
+        }
     }
 }
