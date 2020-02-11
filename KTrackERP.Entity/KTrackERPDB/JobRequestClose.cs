@@ -22,6 +22,10 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string Remark { get; set; }
         public string TaxID { get; set; }
         public string DocDeliverAddress { get; set; }
+        public int PeriodPay { get; set; }
+        public int ConditionBill { get; set; }
+        public int ConditionPayBill { get; set; }
+
         public DateTime? serviceChargePMonthStartDate { get; set; }
         public DateTime? serviceChargePYearStartDate { get; set; }
         public DateTime? serviceChargeNextDate { get; set; }

@@ -11,5 +11,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         object GenerateJobCode();
         bool Update(int id, JobRequestClose model);
         bool Delete(int id);
+        object GetCarAndBoxByJobReqByID(int id);
+        object GetJobRequestInformationByJobReqID(int id);
     }
 }

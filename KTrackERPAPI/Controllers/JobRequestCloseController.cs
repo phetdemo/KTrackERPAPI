@@ -32,6 +32,20 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(jobRequestcloseService.GenerateJobCode());
         }
+        [Route("GetCarAndBoxByJobReqByID/{jobreqid}")]
+        [HttpGet]
+        public IHttpActionResult GetCarAndBoxByJobReqByID(int jobreqid)
+        {
+            return Ok(jobRequestcloseService.GetCarAndBoxByJobReqByID(jobreqid));
+        }
+        [Route("GetJobRequestInformationByJobReqID/{jobreqid}")]
+        [HttpGet]
+        public IHttpActionResult GetJobRequestInformationByJobReqID(int jobreqid)
+        {
+            return Ok(jobRequestcloseService.GetJobRequestInformationByJobReqID(jobreqid));
+        }
+
+         
 
 
     }
