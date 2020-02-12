@@ -30,6 +30,9 @@ namespace KTrackERP.Entity
         public string APN { get; set; }
         public DateTime? warrantydateStart { get; set; }
         public DateTime? warrantydateEnd { get; set; }
+        public DateTime? InstallDate { get; set; }
+        public DateTime? UnstallDate { get; set; }
+
         public DateTime? InsDateTime { get; set; }
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }

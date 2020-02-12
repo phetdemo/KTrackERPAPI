@@ -14,6 +14,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public int Seq { get; set; }
         public int OptionID { get; set; }
         public decimal? Price { get; set; }
+        public int Amount { get; set; }
         public decimal? VatPrice { get; set; }
         public decimal? TotalPricee { get; set; }
         public DateTime? InsDateTime { get; set; }

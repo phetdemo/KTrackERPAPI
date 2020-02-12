@@ -144,6 +144,8 @@ namespace KTrackERP.Repository.ERPKTIDB
                                boxs.APN,
                                boxs.warrantydateStart,
                                boxs.warrantydateEnd,
+                               boxs.InstallDate,
+                               boxs.UnstallDate,
                                boxs.InsDateTime,
                                boxs.InsBy,
                                boxs.UpdDateTime,
@@ -253,7 +255,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.Username = item.Username;
                                     updatebox.VID = item.VID;
                                     updatebox.warrantydateEnd = item.warrantydateEnd;
-                                    updatebox.warrantydateStart = item.warrantydateStart;
+                                    updatebox.warrantydateStart = item.warrantydateStart;                                    
                                 }
                             }
                             foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))

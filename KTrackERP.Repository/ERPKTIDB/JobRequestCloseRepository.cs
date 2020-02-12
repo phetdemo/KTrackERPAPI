@@ -377,8 +377,24 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.UpdDateTime = DateTime.Now;
                                     //updatebox.Username = item.Username;
                                     updatebox.VID = item.VID;
+                                    updatebox.InstallDate = item.InstallDate;
+                                    updatebox.UnstallDate = item.UnstallDate;
                                     //updatebox.warrantydateEnd = item.warrantydateEnd;
                                     //updatebox.warrantydateStart = item.warrantydateStart;
+                                }
+                            }
+                            foreach(ServiceCharge item in model.ServiceCharge)
+                            {
+                                var updateservice = context.ServiceCharge.Where(x => x.ServiceID == item.ServiceID).FirstOrDefault();
+                                if(updateservice != null)
+                                {
+                                    updateservice.Amount = item.Amount;
+                                    updateservice.OptionID = item.OptionID;
+                                    updateservice.Price = item.Price;
+                                    updateservice.ServiceChargeID = item.ServiceChargeID;
+                                    updateservice.TotalPricee = item.TotalPricee;
+                                    updateservice.UpdBy = item.UpdBy;
+                                    updateservice.UpdDateTime = DateTime.Now;
                                 }
                             }
                             //foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
@@ -423,9 +439,14 @@ namespace KTrackERP.Repository.ERPKTIDB
                                 model.InstallMent[i].JobRequestCloseID = model.JobRequestCloseID;
                                 context.InstallMent.Add(model.InstallMent[i]);
                             }
+                            for(int i = 0; i < model.ServiceCharge.Count; i++)
+                            {
+                                context.ServiceCharge.Add(model.ServiceCharge[i]);
+                                context.SaveChanges();
+                            }
 
                         }
-                        context.SaveChanges();
+                        //context.SaveChanges();
                         dbTransaction.Commit();
                     }
                 }
