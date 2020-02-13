@@ -160,9 +160,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                    s.UpdDateTime,
                                    s.UpdBy,
                                    ServiceChargeName = m.thdesc
-
-                               }
-                               ).ToList();
+                               }).ToList();
 
                 return new { jobreqc, installments, car, service, box };
             }
