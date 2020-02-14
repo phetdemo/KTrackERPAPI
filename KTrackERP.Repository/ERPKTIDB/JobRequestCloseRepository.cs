@@ -336,55 +336,21 @@ namespace KTrackERP.Repository.ERPKTIDB
                             update.UpdBy = model.UpdBy;
                             update.UpdDateTime = DateTime.Now;
 
-                            foreach (Car item in model.Car)
+                            foreach (InstallMent item in model.InstallMent)
                             {
-                                var updatecar = context.Car.Where(x => x.CarID == item.CarID).FirstOrDefault();
-                                if (update != null)
+                                var updateinstallment = context.InstallMent.Where(x => x.InstallMentID == item.InstallMentID).FirstOrDefault();
+                                if (updateinstallment != null)
                                 {
-                                    updatecar.ServiceReportBookNo = item.ServiceReportBookNo;
-                                    updatecar.ServiceRportNo = item.ServiceRportNo;
-                                    updatecar.NewServiceReportBookNo = item.NewServiceReportBookNo;
-                                    updatecar.NewServiceRportNo = item.NewServiceRportNo;
-                                    updatecar.UpdBy = model.UpdBy;
-                                    updatecar.UpdDateTime = DateTime.Now;
-
+                                    updateinstallment.PayDate = item.PayDate;
+                                    updateinstallment.Price = item.Price;
+                                    updateinstallment.UpdBy = item.UpdBy;
+                                    updateinstallment.UpdDateTime = DateTime.Now;
                                 }
                             }
-                            foreach (Box item in model.Box)
-                            {
-                                var updatebox = context.Box.Where(x => x.BoxID == item.BoxID).FirstOrDefault();
-                                if (updatebox != null)
-                                {
-                                    //updatebox.AmountCameraDVR = item.AmountCameraDVR;
-                                    //updatebox.APN = item.APN;
-                                    //updatebox.BatteryID = item.BatteryID;
-                                    //updatebox.CarID = item.CarID;
-                                    //updatebox.DeviceID = item.DeviceID;
-                                    //updatebox.ElectricVoltID = item.ElectricVoltID;
-                                    //updatebox.FirmWareID = item.FirmWareID;
-                                    //updatebox.IP = item.IP;
-                                    //updatebox.LimitSpeedID = item.LimitSpeedID;
-                                    //updatebox.Password = item.Password;
-                                    //updatebox.Port = item.Port;
-                                    //updatebox.SerialDVRNumber = item.SerialDVRNumber;
-                                    updatebox.SerialNumber = item.SerialNumber;
-                                    //updatebox.SimTypeID = item.SimTypeID;
-                                    //updatebox.SoundAlertID = item.SoundAlertID;
-                                    //updatebox.TimeSendDataID = item.TimeSendDataID;
-                                    updatebox.UpdBy = model.UpdBy;
-                                    updatebox.UpdDateTime = DateTime.Now;
-                                    //updatebox.Username = item.Username;
-                                    updatebox.VID = item.VID;
-                                    updatebox.InstallDate = item.InstallDate;
-                                    updatebox.UnstallDate = item.UnstallDate;
-                                    //updatebox.warrantydateEnd = item.warrantydateEnd;
-                                    //updatebox.warrantydateStart = item.warrantydateStart;
-                                }
-                            }
-                            foreach(ServiceCharge item in model.ServiceCharge)
+                            foreach (ServiceCharge item in model.ServiceCharge)
                             {
                                 var updateservice = context.ServiceCharge.Where(x => x.ServiceID == item.ServiceID).FirstOrDefault();
-                                if(updateservice != null)
+                                if (updateservice != null)
                                 {
                                     updateservice.Amount = item.Amount;
                                     updateservice.OptionID = item.OptionID;
@@ -395,6 +361,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updateservice.UpdDateTime = DateTime.Now;
                                 }
                             }
+
                             //foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
                             //{
                             //    Car c = context.Car.Find(Convert.ToInt32(carid));
@@ -418,33 +385,70 @@ namespace KTrackERP.Repository.ERPKTIDB
                             //var jobtype = context.Master_D.Where(x => x.prmid == model.JobRequestType).Select(x => x.endesc).FirstOrDefault();
                             model.JobRequestCloseNo = GenerateJobCodeDB();
                             context.JobRequestClose.Add(model);
-                            context.SaveChanges();
-
-                            for (int i = 0; i < model.Car.Count; i++)
+                            context.SaveChanges();                            
+                            
+                            for (int i = 0; i < model.ServiceCharge.Count; i++)
                             {
-                                context.Car.Add(model.Car[i]);
-                                context.SaveChanges();
-                                for (int k = i; k < model.Box.Count;)
-                                {
-                                    context.Box.Add(model.Box[k]);
-                                    context.SaveChanges();
-                                    break;
-                                }
-                            }
-                            for (int i = 0; i < model.InstallMent.Count; i++)
-                            {
-                                model.InstallMent[i].InsDateTime = DateTime.Now;
-                                model.InstallMent[i].JobRequestCloseID = model.JobRequestCloseID;
-                                context.InstallMent.Add(model.InstallMent[i]);
-                            }
-                            for(int i = 0; i < model.ServiceCharge.Count; i++)
-                            {
+                                model.ServiceCharge[i].JobRequestCloseID = model.JobRequestCloseID;
+                                model.ServiceCharge[i].Seq = i + 1;
+                                model.ServiceCharge[i].InsDateTime = DateTime.Now;
                                 context.ServiceCharge.Add(model.ServiceCharge[i]);
                                 context.SaveChanges();
                             }
-
+                            for (int i = 0; i < model.InstallMent.Count; i++)
+                            {
+                                model.InstallMent[i].Seq = i + 1;
+                                model.InstallMent[i].InsDateTime = DateTime.Now;
+                                model.InstallMent[i].JobRequestCloseID = model.JobRequestCloseID;
+                                context.InstallMent.Add(model.InstallMent[i]);
+                                context.SaveChanges();
+                            }
                         }
-                        //context.SaveChanges();
+                        foreach (Car item in model.Car)
+                        {
+                            var updatecar = context.Car.Where(x => x.CarID == item.CarID).FirstOrDefault();
+                            if (updatecar != null)
+                            {
+                                updatecar.ServiceReportBookNo = item.ServiceReportBookNo;
+                                updatecar.ServiceRportNo = item.ServiceRportNo;
+                                updatecar.NewServiceReportBookNo = item.NewServiceReportBookNo;
+                                updatecar.NewServiceRportNo = item.NewServiceRportNo;
+                                updatecar.UpdBy = item.UpdBy;
+                                updatecar.UpdDateTime = DateTime.Now;
+                            }
+                        }
+                        foreach (Box item in model.Box)
+                        {
+                            var updatebox = context.Box.Where(x => x.BoxID == item.BoxID).FirstOrDefault();
+                            if (updatebox != null)
+                            {
+                                //updatebox.AmountCameraDVR = item.AmountCameraDVR;
+                                //updatebox.APN = item.APN;
+                                //updatebox.BatteryID = item.BatteryID;
+                                //updatebox.CarID = item.CarID;
+                                //updatebox.DeviceID = item.DeviceID;
+                                //updatebox.ElectricVoltID = item.ElectricVoltID;
+                                //updatebox.FirmWareID = item.FirmWareID;
+                                //updatebox.IP = item.IP;
+                                //updatebox.LimitSpeedID = item.LimitSpeedID;
+                                //updatebox.Password = item.Password;
+                                //updatebox.Port = item.Port;
+                                //updatebox.SerialDVRNumber = item.SerialDVRNumber;
+                                updatebox.SerialNumber = item.SerialNumber;
+                                //updatebox.SimTypeID = item.SimTypeID;
+                                //updatebox.SoundAlertID = item.SoundAlertID;
+                                //updatebox.TimeSendDataID = item.TimeSendDataID;
+                                updatebox.UpdBy = item.UpdBy;
+                                updatebox.UpdDateTime = DateTime.Now;
+                                //updatebox.Username = item.Username;
+                                updatebox.VID = item.VID;
+                                updatebox.InstallDate = item.InstallDate;
+                                updatebox.UnstallDate = item.UnstallDate;
+                                //updatebox.warrantydateEnd = item.warrantydateEnd;
+                                //updatebox.warrantydateStart = item.warrantydateStart;
+                            }
+                        }
+                        context.SaveChanges();
                         dbTransaction.Commit();
                     }
                 }
@@ -468,7 +472,6 @@ namespace KTrackERP.Repository.ERPKTIDB
             string datecode = DateTime.Now.ToString("yyyyMMdd");
             try
             {
-
                 jobcode = string.Format("JRC{0}{1}", datecode, "####");
             }
             catch (Exception e)
@@ -502,7 +505,6 @@ namespace KTrackERP.Repository.ERPKTIDB
                     string resultcode = string.Format("0000{0}", maxruning);
                     jobcode = string.Format("JRC{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
                 }
-
             }
             catch (Exception e)
             {
