@@ -47,9 +47,9 @@ namespace KTrackERP.Service
         {
             return jobRequestRepository.GenerateJobCode(jobtype);
         }
-        public object GetHistoryJob(int jobstatus)
+        public object GetHistoryJob(int jobtype, int jobstatus)
         {
-            return jobRequestRepository.GetHistoryJob(jobstatus);
+            return jobRequestRepository.GetHistoryJob(jobtype, jobstatus);
         }
     }
 }

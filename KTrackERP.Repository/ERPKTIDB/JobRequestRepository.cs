@@ -255,13 +255,13 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.Username = item.Username;
                                     updatebox.VID = item.VID;
                                     updatebox.warrantydateEnd = item.warrantydateEnd;
-                                    updatebox.warrantydateStart = item.warrantydateStart;                                    
+                                    updatebox.warrantydateStart = item.warrantydateStart;
                                 }
                             }
                             foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
                             {
                                 Car c = context.Car.Find(Convert.ToInt32(carid));
-                                if(c != null)
+                                if (c != null)
                                 {
                                     context.Car.Remove(c);
                                 }
@@ -315,13 +315,86 @@ namespace KTrackERP.Repository.ERPKTIDB
             }
             return true;
         }
-        public object GetHistoryJob(int jobstatus)
+        public object GetHistoryJob(int jobtype, int jobstatus)
         {
+            IQueryable jobdata = null;
             try
             {
-                var jobdata = context.JobRequest.Where(x => x.JobStatus == jobstatus).ToList();
+                if (jobtype == 0 && jobstatus == 0)
+                {
+                    jobdata = from job in context.JobRequest
+                              join jt in context.Master_D on job.JobRequestType equals jt.prmid into asjobtype
+                              join js in context.Master_D on job.JobStatus equals js.prmid into asjobstatus
+                              from jt in asjobtype.DefaultIfEmpty()
+                              from js in asjobstatus.DefaultIfEmpty()
+                              select new
+                              {
+                                  job.JobRequestNoID,
+                                  job.JobRequestNo,
+                                  job.CompanyName,
+                                  job.InsBy,
+                                  jobstatusth = js.thdesc,
+                                  jobtypeth = jt.thdesc
+                              };
+                }
+                else if (jobstatus > 0 && jobtype > 0)
+                {
+                    jobdata = from job in context.JobRequest
+                              join jt in context.Master_D on job.JobRequestType equals jt.prmid into asjobtype
+                              join js in context.Master_D on job.JobStatus equals js.prmid into asjobstatus
+                              from jt in asjobtype.DefaultIfEmpty()
+                              from js in asjobstatus.DefaultIfEmpty()
+                              where job.JobRequestType == jobtype && job.JobStatus == jobstatus
+                              select new
+                              {
+                                  job.JobRequestNoID,
+                                  job.JobRequestNo,
+                                  job.CompanyName,
+                                  job.InsBy,
+                                  jobstatusth = js.thdesc,
+                                  jobtypeth = jt.thdesc
+                              };
+                }
+                else if (jobtype > 0 && jobstatus == 0)
+                {
+                    jobdata = from job in context.JobRequest
+                              join jt in context.Master_D on job.JobRequestType equals jt.prmid into asjobtype
+                              join js in context.Master_D on job.JobStatus equals js.prmid into asjobstatus
+                              from jt in asjobtype.DefaultIfEmpty()
+                              from js in asjobstatus.DefaultIfEmpty()
+                              where job.JobRequestType == jobtype
+                              select new
+                              {
+                                  job.JobRequestNoID,
+                                  job.JobRequestNo,
+                                  job.CompanyName,
+                                  job.InsBy,
+                                  jobstatusth = js.thdesc,
+                                  jobtypeth = jt.thdesc
+                              };
+                }
+                else
+                {
+                    jobdata = from job in context.JobRequest
+                              join jt in context.Master_D on job.JobRequestType equals jt.prmid into asjobtype
+                              join js in context.Master_D on job.JobStatus equals js.prmid into asjobstatus
+                              from jt in asjobtype.DefaultIfEmpty()
+                              from js in asjobstatus.DefaultIfEmpty()
+                              where job.JobStatus == jobstatus
+                              select new
+                              {
+                                  job.JobRequestNoID,
+                                  job.JobRequestNo,
+                                  job.CompanyName,
+                                  job.InsBy,
+                                  jobstatusth = js.thdesc,
+                                  jobtypeth = jt.thdesc
+                              };
+                }
+
                 return new { jobdata };
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 var joker = e.Message;
                 return null;
@@ -348,6 +421,7 @@ namespace KTrackERP.Repository.ERPKTIDB
 
             return jobreq;
         }
+
         public object GenerateJobCode(string jobtype)
         {
             string jobcode = "";

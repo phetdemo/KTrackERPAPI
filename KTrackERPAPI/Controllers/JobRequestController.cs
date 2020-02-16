@@ -59,11 +59,11 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(jobRequestService.GenerateJobCode(jobtype));
         }
-        [Route("GetHistoryJob/{jobstatus}")]
+        [Route("GetHistoryJob/{jobtype}/{jobstatus}")]
         [HttpGet]
-        public IHttpActionResult GetHistoryJob(int jobstatus)
+        public IHttpActionResult GetHistoryJob(int jobtype, int jobstatus)
         {
-            return Ok(jobRequestService.GetHistoryJob(jobstatus));
+            return Ok(jobRequestService.GetHistoryJob(jobtype, jobstatus));
         }
     }
 }

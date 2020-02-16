@@ -12,6 +12,6 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         bool Delete(int id);
         object GetJobWorkList(int jobstatusID);
         object GenerateJobCode(string jobtype);
-        object GetHistoryJob(int jobstatus);
+        object GetHistoryJob(int jobtype, int jobstatus);
     }
 }
