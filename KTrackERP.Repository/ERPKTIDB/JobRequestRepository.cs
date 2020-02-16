@@ -315,6 +315,18 @@ namespace KTrackERP.Repository.ERPKTIDB
             }
             return true;
         }
+        public object GetHistoryJob(int jobstatus)
+        {
+            try
+            {
+                var jobdata = context.JobRequest.Where(x => x.JobStatus == jobstatus).ToList();
+                return new { jobdata };
+            }catch(Exception e)
+            {
+                var joker = e.Message;
+                return null;
+            }
+        }
         public object GetJobWorkList(int jobstatusID)
         {
             var jobreq = from job in context.JobRequest
