@@ -5,7 +5,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
 {
     public interface IMaster_HRepository
     {
-        IList<Master_H> Get();
+        object Get();
         object GetById(string id);
         bool Insert(Master_H model);
 

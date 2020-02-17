@@ -19,9 +19,23 @@ namespace KTrackERP.Repository.ERPKTIDB
             throw new NotImplementedException();
         }
 
-        public IList<Entity.KTrackERPDB.Master_H> Get()
+        public object Get()
         {
-            return context.Master_H.ToList();
+            var masterh = (from m in context.Master_H
+                           select new
+                           {
+                               endesch = m.endesc,
+                               m.instby,
+                               m.instdte,
+                               prmtyph = m.prmtyp,
+                               recstsh = m.recsts,
+                               m.remark,
+                               thdesch = m.thdesc,
+                               m.updby,
+                               m.upddte
+                           }).ToList();
+
+            return new { masterh };
         }
 
         public object GetById(string id)

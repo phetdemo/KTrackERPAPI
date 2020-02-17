@@ -5,7 +5,7 @@ namespace KTrackERP.Service.Interface
 {
     public interface IMaster_HService
     {
-        IList<Master_H> Get();
+        object Get();
         object GetbyId(string id);
         bool Insert(Master_H model);
         bool Delete(int id);
