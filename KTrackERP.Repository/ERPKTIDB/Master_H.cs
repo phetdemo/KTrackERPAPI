@@ -24,13 +24,13 @@ namespace KTrackERP.Repository.ERPKTIDB
             var masterh = (from m in context.Master_H
                            select new
                            {
-                               endesch = m.endesc,
+                               m.endesc,
                                m.instby,
                                m.instdte,
-                               prmtyph = m.prmtyp,
-                               recstsh = m.recsts,
+                               m.prmtyp,
+                               m.recsts,
                                m.remark,
-                               thdesch = m.thdesc,
+                               m.thdesc,
                                m.updby,
                                m.upddte
                            }).ToList();
