@@ -50,5 +50,11 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(master_DService.GetMasterType(prmtyp));
         }
+        [Route("GetOptionBox/{boxid}")]
+        [HttpGet]
+        public IHttpActionResult GetOptionBox(int boxid)
+        {
+            return Ok(master_DService.GetOptionBox(boxid));
+        }
     }
 }

@@ -3,3 +3,8 @@ C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Entity\bin\Release\KTr
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.csprojAssemblyReference.cache
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.dll
 C:\Users\User\Desktop\ProjectJOKER\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.pdb
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Entity\bin\Release\KTrackERP.Entity.dll
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Entity\bin\Release\KTrackERP.Entity.pdb
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.csprojAssemblyReference.cache
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.dll
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Entity\obj\Release\KTrackERP.Entity.pdb

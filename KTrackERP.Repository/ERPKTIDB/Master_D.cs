@@ -45,6 +45,39 @@ namespace KTrackERP.Repository.ERPKTIDB
                 return null;
             }
         }
+        public object GetOptionBox(int boxid)
+        {
+            try
+            {
+                var boxde = context.BoxDetail.ToList();
+                var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                var optionbox = (from o in option
+                                 join b in context.BoxDetail on o.prmid equals b.MOptionID  into asb
+                                 from x in asb.DefaultIfEmpty()
+                                 
+                                 select new
+                                 {
+                                     optionNameTH = o.thdesc,
+                                     optionNameEN = o.endesc,
+                                     o.prmflag,
+                                     BoxDetailID = x?.BoxDetailID ?? null,
+                                     BoxID = x?.BoxID ?? null,
+                                     InsBy = x?.InsBy ?? null,
+                                     InsDateTime = x?.InsDateTime ?? null,
+                                     MCameraTypeID = x?.MCameraTypeID ?? null,
+                                     MOptionID = x?.MOptionID ?? null,
+                                     OptionValue = x?.OptionValue ?? null,
+                                     UpdBy = x?.UpdBy ?? null,
+                                     UpdDateTime = x?.UpdDateTime ?? null
+                                 }).ToList();
+                return new { optionbox };
+
+            }catch(Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
 
 
         public bool Insert(Entity.KTrackERPDB.Master_D model)
