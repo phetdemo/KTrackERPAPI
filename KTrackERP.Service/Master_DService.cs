@@ -38,6 +38,10 @@ namespace KTrackERP.Service
         {
             return master_DRepository.GetMasterType(prmtyp);
         }
+        public object GetOptionBox(int boxid)
+        {
+            return master_DRepository.GetOptionBox(boxid);
+        }
 
 
     }
