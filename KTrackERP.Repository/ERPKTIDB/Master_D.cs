@@ -52,14 +52,15 @@ namespace KTrackERP.Repository.ERPKTIDB
                 var boxde = context.BoxDetail.ToList();
                 var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
                 var optionbox = (from o in option
-                                 join b in context.BoxDetail on o.prmid equals b.MOptionID  into asb
+                                 join b in context.BoxDetail on o.prmid equals b.MOptionID into asb
                                  from x in asb.DefaultIfEmpty()
-                                 
+
                                  select new
                                  {
                                      optionNameTH = o.thdesc,
                                      optionNameEN = o.endesc,
                                      o.prmflag,
+                                     o.prmid,
                                      BoxDetailID = x?.BoxDetailID ?? null,
                                      BoxID = x?.BoxID ?? null,
                                      InsBy = x?.InsBy ?? null,
@@ -72,14 +73,13 @@ namespace KTrackERP.Repository.ERPKTIDB
                                  }).ToList();
                 return new { optionbox };
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 var joke = ex.Message;
                 return null;
             }
         }
-
-
         public bool Insert(Entity.KTrackERPDB.Master_D model)
         {
             try
