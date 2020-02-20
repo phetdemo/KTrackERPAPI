@@ -9,6 +9,7 @@ namespace KTrackERP.Entity.KTrackERPDB
     {
         [Key]
         public long BoxDetailID { get; set; }
+        public int? JobRequestNoID { get; set; }
         public int? BoxID { get; set; }
         public int? MOptionID { get; set; }
         public int? MCameraTypeID { get; set; }

@@ -258,6 +258,26 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     updatebox.warrantydateStart = item.warrantydateStart;
                                 }
                             }
+                            foreach (BoxDetail item in model.BoxDetail)
+                            {
+                                var updateboxd = context.BoxDetail.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
+                                if (updateboxd != null)
+                                {
+                                    if (updateboxd.OptionValue.ToLower() == "false" || updateboxd.OptionValue.Length == 0)
+                                    {
+                                        context.BoxDetail.Remove(updateboxd);
+                                    }
+                                    else
+                                    {
+                                        updateboxd.UpdDateTime = DateTime.Now;
+                                        updateboxd.UpdBy = item.UpdBy;
+                                        updateboxd.MCameraTypeID = item.MCameraTypeID;
+                                        updateboxd.MOptionID = item.MOptionID;
+                                        updateboxd.OptionValue = item.OptionValue;
+                                    }
+                                    context.SaveChanges();
+                                }
+                            }
                             foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
                             {
                                 Car c = context.Car.Find(Convert.ToInt32(carid));
@@ -297,6 +317,14 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     model.Box[k].InsDateTime = DateTime.Now;
                                     model.Box[k].InsBy = model.InsBy;
                                     context.Box.Add(model.Box[k]);
+                                    context.SaveChanges();
+
+                                    var boxdetails = model.BoxDetail.Where(x => x.OptionValue == "true" || x.OptionValue.Length > 0).FirstOrDefault();
+                                    boxdetails.InsBy = model.InsBy;
+                                    boxdetails.InsDateTime = DateTime.Now;
+                                    boxdetails.BoxID = model.Box[k].BoxID;
+                                    boxdetails.JobRequestNoID = model.JobRequestNoID;
+                                    context.BoxDetail.Add(boxdetails);
                                     context.SaveChanges();
                                     break;
                                 }
@@ -418,6 +446,25 @@ namespace KTrackERP.Repository.ERPKTIDB
                              jobtypeth = jobtype.thdesc
                          };
 
+
+            return jobreq;
+        }
+        public object GetWorkListAll()
+        {
+            var jobreq = from job in context.JobRequest
+                         join jobtype in context.Master_D on job.JobRequestType equals jobtype.prmid into asjobtype
+                         join jobstatus in context.Master_D on job.JobStatus equals jobstatus.prmid into asjobstatus
+                         from jobtype in asjobtype.DefaultIfEmpty()
+                         from jobstatus in asjobstatus.DefaultIfEmpty()
+                         select new
+                         {
+                             job.JobRequestNoID,
+                             job.JobRequestNo,
+                             job.CompanyName,
+                             job.InsBy,
+                             jobstatusth = jobstatus.thdesc,
+                             jobtypeth = jobtype.thdesc
+                         };
 
             return jobreq;
         }

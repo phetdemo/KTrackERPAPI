@@ -51,5 +51,9 @@ namespace KTrackERP.Service
         {
             return jobRequestRepository.GetHistoryJob(jobtype, jobstatus);
         }
+        public object GetWorkListAll()
+        {
+            return jobRequestRepository.GetWorkListAll();
+        }
     }
 }

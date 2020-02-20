@@ -49,12 +49,13 @@ namespace KTrackERP.Repository.ERPKTIDB
         {
             try
             {
-                var boxde = context.BoxDetail.ToList();
+                var boxde = context.BoxDetail.Where(x => x.BoxID == boxid).ToList();
                 var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
-                var optionbox = (from o in option
-                                 join b in context.BoxDetail on o.prmid equals b.MOptionID into asb
-                                 from x in asb.DefaultIfEmpty()
 
+
+                var optionbox = (from o in option
+                                 join b in boxde on o.prmid equals b.MOptionID into asb
+                                 from x in asb.DefaultIfEmpty()
                                  select new
                                  {
                                      optionNameTH = o.thdesc,

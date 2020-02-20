@@ -52,6 +52,12 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(jobRequestService.GetJobWorkList(jobstatusID));
         }
+        [Route("GetWorklistAll")]
+        [HttpGet]
+        public IHttpActionResult GetWorklistAll()
+        {
+            return Ok(jobRequestService.GetWorkListAll());
+        }
 
         [Route("GetJobCode/{jobtype}")]
         [HttpGet]

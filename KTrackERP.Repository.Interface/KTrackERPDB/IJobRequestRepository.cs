@@ -13,5 +13,6 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         object GetJobWorkList(int jobstatusID);
         object GenerateJobCode(string jobtype);
         object GetHistoryJob(int jobtype, int jobstatus);
+        object GetWorkListAll();
     }
 }

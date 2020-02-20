@@ -51,6 +51,8 @@ namespace KTrackERP.Entity.KTrackERPDB
         [NotMapped]
         public List<Box> Box { get; set; }
         [NotMapped]
+        public List<BoxDetail> BoxDetail { get; set; }
+        [NotMapped]
         public string BoxIDs { get; set; }
         [NotMapped]
         public string CarIDs { get; set; }
