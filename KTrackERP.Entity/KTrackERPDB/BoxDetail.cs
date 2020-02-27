@@ -18,6 +18,8 @@ namespace KTrackERP.Entity.KTrackERPDB
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }
         public string UpdBy { get; set; }
+        [NotMapped]
+        public string LicensePlate { get; set; }
 
     }
 }

@@ -319,7 +319,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     context.Box.Add(model.Box[k]);
                                     context.SaveChanges();
 
-                                    var boxdetails = model.BoxDetail.Where(x => x.OptionValue == "true" || x.OptionValue.Length > 0).FirstOrDefault();
+                                    var boxdetails = model.BoxDetail.Where(x => (x.OptionValue == "true" || x.OptionValue.Length > 0) && (x.LicensePlate == model.Car[i].LicensePlate)).FirstOrDefault();
                                     boxdetails.InsBy = model.InsBy;
                                     boxdetails.InsDateTime = DateTime.Now;
                                     boxdetails.BoxID = model.Box[k].BoxID;
