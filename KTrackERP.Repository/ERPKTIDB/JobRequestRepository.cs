@@ -155,31 +155,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                SimTypeName = simtype.thdesc
                            }).ToList();
 
-                var boxde = context.BoxDetail.Where(x => x.JobRequestNoID == id).ToList();
-                var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
-                var boxboxdetail = (from o in option
-                                 join b in boxde on o.prmid equals b.MOptionID into asb
-                                 from x in asb.DefaultIfEmpty()
-                                 select new
-                                 {
-                                     optionNameTH = o.thdesc,
-                                     optionNameEN = o.endesc,
-                                     o.prmflag,
-                                     o.prmid,
-                                     BoxDetailID = x?.BoxDetailID ?? 0,
-                                     BoxID = x?.BoxID ?? null,
-                                     JobRequestNoID = x?.JobRequestNoID ?? null,
-                                     InsBy = x?.InsBy ?? null,
-                                     InsDateTime = x?.InsDateTime ?? null,
-                                     MCameraTypeID = x?.MCameraTypeID ?? null,
-                                     MOptionID = x?.MOptionID ?? null,
-                                     OptionValue = x?.OptionValue ?? null,
-                                     UpdBy = x?.UpdBy ?? null,
-                                     UpdDateTime = x?.UpdDateTime ?? null,
-                                     LicensePlate = ""
-                                 }).ToList();
-                
-                return new { jobreq, car, box , boxboxdetail };
+                return new { jobreq, car, box };
 
             }
             catch (Exception ex)
@@ -290,11 +266,11 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     if (item.OptionValue.ToLower() == "false" || item.OptionValue == "")
                                     {
                                         context.BoxDetail.Remove(updateboxd);
-                                    }                                    
+                                    }
                                 }
                                 else
                                 {
-                                    if(item.BoxDetailID == 0)
+                                    if (item.BoxDetailID == 0)
                                     {
                                         item.UpdBy = model.UpdBy;
                                         item.UpdDateTime = DateTime.Now;
@@ -319,7 +295,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                 {
                                     context.Box.Remove(b);
                                     var boxd = context.BoxDetail.Where(x => x.BoxID == b.BoxID).ToList();
-                                    if(boxd != null)
+                                    if (boxd != null)
                                     {
                                         context.BoxDetail.RemoveRange(boxd);
                                     }
@@ -351,7 +327,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     context.SaveChanges();
 
                                     var boxdetails = model.BoxDetail.Where(x => (x.OptionValue != "false") && (x.LicensePlate == model.Car[i].LicensePlate)).ToList();
-                                    for(int j = 0; j < boxdetails.Count; j++)
+                                    for (int j = 0; j < boxdetails.Count; j++)
                                     {
                                         boxdetails[j].InsBy = model.InsBy;
                                         boxdetails[j].InsDateTime = DateTime.Now;
@@ -359,7 +335,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                         boxdetails[j].JobRequestNoID = model.JobRequestNoID;
                                         context.BoxDetail.Add(boxdetails[j]);
                                         context.SaveChanges();
-                                    }                                    
+                                    }
                                     break;
                                 }
                             }
