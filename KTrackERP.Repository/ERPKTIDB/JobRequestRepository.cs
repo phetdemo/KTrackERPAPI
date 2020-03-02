@@ -277,27 +277,32 @@ namespace KTrackERP.Repository.ERPKTIDB
                                         context.BoxDetail.Add(item);
                                     }
                                 }
-                                //context.SaveChanges();
-                            }
 
-                            foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
+                            }
+                            if (model.CarIDs != null)
                             {
-                                Car c = context.Car.Find(Convert.ToInt32(carid));
-                                if (c != null)
+                                foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
                                 {
-                                    context.Car.Remove(c);
+                                    Car c = context.Car.Find(Convert.ToInt32(carid));
+                                    if (c != null)
+                                    {
+                                        context.Car.Remove(c);
+                                    }
                                 }
                             }
-                            foreach (string boxid in model.BoxIDs.Split(',').Where(x => x != "" || x != null))
+                            if (model.BoxIDs != null)
                             {
-                                Box b = context.Box.Find(Convert.ToInt32(boxid));
-                                if (b != null)
+                                foreach (string boxid in model.BoxIDs.Split(',').Where(x => x != "" || x != null))
                                 {
-                                    context.Box.Remove(b);
-                                    var boxd = context.BoxDetail.Where(x => x.BoxID == b.BoxID).ToList();
-                                    if (boxd != null)
+                                    Box b = context.Box.Find(Convert.ToInt32(boxid));
+                                    if (b != null)
                                     {
-                                        context.BoxDetail.RemoveRange(boxd);
+                                        context.Box.Remove(b);
+                                        var boxd = context.BoxDetail.Where(x => x.BoxID == b.BoxID).ToList();
+                                        if (boxd != null)
+                                        {
+                                            context.BoxDetail.RemoveRange(boxd);
+                                        }
                                     }
                                 }
                             }
