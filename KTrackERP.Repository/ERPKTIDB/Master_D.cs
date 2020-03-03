@@ -48,13 +48,13 @@ namespace KTrackERP.Repository.ERPKTIDB
         public object GetOptionBox(int boxid)
         {
             try
-            {                
+            {
                 var boxde = context.BoxDetail.Where(x => x.BoxID == boxid).ToList();
                 var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
 
 
                 var optionbox = (from o in option
-                                 join b in boxde on o.prmid equals b.MOptionID into asb                                 
+                                 join b in boxde on o.prmid equals b.MOptionID into asb
                                  from x in asb.DefaultIfEmpty()
                                  select new
                                  {
@@ -70,6 +70,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                      MCameraTypeID = x?.MCameraTypeID ?? null,
                                      MOptionID = x?.MOptionID ?? null,
                                      OptionValue = x?.OptionValue ?? null,
+                                     Selected = x?.Selected ?? false,
                                      UpdBy = x?.UpdBy ?? null,
                                      UpdDateTime = x?.UpdDateTime ?? null,
                                      LicensePlate = ""

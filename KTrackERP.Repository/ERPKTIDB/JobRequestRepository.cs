@@ -331,7 +331,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     context.Box.Add(model.Box[k]);
                                     context.SaveChanges();
 
-                                    var boxdetails = model.BoxDetail.Where(x => (x.OptionValue != "false") && (x.LicensePlate == model.Car[i].LicensePlate)).ToList();
+                                    var boxdetails = model.BoxDetail.Where(x => (x.Selected != false) && (x.LicensePlate == model.Car[i].LicensePlate)).ToList();
                                     for (int j = 0; j < boxdetails.Count; j++)
                                     {
                                         boxdetails[j].InsBy = model.InsBy;

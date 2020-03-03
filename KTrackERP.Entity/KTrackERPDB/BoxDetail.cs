@@ -14,6 +14,7 @@ namespace KTrackERP.Entity.KTrackERPDB
         public int? MOptionID { get; set; }
         public int? MCameraTypeID { get; set; }
         public string OptionValue { get; set; }
+        public bool Selected { get; set; }
         public DateTime? InsDateTime { get; set; }
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }
