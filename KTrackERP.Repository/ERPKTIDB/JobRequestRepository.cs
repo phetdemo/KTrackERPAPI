@@ -502,13 +502,13 @@ namespace KTrackERP.Repository.ERPKTIDB
                 switch (jobtype)
                 {
                     case "Install":
-                        jobcode = string.Format("JRN{0}{1}", datecode, "####");
+                        jobcode = string.Format("JI{0}{1}", datecode, "####");
                         break;
                     case "Remove":
-                        jobcode = string.Format("JRM{0}{1}", datecode, "####");
+                        jobcode = string.Format("JR{0}{1}", datecode, "####");
                         break;
                     case "Swapping":
-                        jobcode = string.Format("JSW{0}{1}", datecode, "####");
+                        jobcode = string.Format("JS{0}{1}", datecode, "####");
                         break;
 
                 }
@@ -539,37 +539,37 @@ namespace KTrackERP.Repository.ERPKTIDB
 
                         if (codeMax == null)
                         {
-                            jobcode = string.Format("JRN{0}{1}", datecode, "0001");
+                            jobcode = string.Format("JI{0}{1}", datecode, "0001");
                         }
                         else
                         {
                             int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
                             string resultcode = string.Format("0000{0}", maxruning);
-                            jobcode = string.Format("JRN{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                            jobcode = string.Format("JI{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
                         }
                         break;
                     case "Remove":
                         if (codeMax == null)
                         {
-                            jobcode = string.Format("JRM{0}{1}", datecode, "0001");
+                            jobcode = string.Format("JR{0}{1}", datecode, "0001");
                         }
                         else
                         {
                             int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
                             string resultcode = string.Format("0000{0}", maxruning);
-                            jobcode = string.Format("JRM{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                            jobcode = string.Format("JR{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
                         }
                         break;
                     case "Swapping":
                         if (codeMax == null)
                         {
-                            jobcode = string.Format("JWS{0}{1}", datecode, "0001");
+                            jobcode = string.Format("JS{0}{1}", datecode, "0001");
                         }
                         else
                         {
                             int maxruning = Convert.ToInt32(codeMax.JobRequestNo.ToString().Substring(codeMax.JobRequestNo.ToString().Length - 4, 4)) + 1;
                             string resultcode = string.Format("0000{0}", maxruning);
-                            jobcode = string.Format("JSW{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
+                            jobcode = string.Format("Js{0}{1}", datecode, resultcode.Substring(resultcode.Length - 4, 4));
                         }
                         break;
 
