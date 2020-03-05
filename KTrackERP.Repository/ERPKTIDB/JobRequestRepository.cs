@@ -209,76 +209,84 @@ namespace KTrackERP.Repository.ERPKTIDB
                             update.UpdBy = model.UpdBy;
                             update.UpdDateTime = DateTime.Now;
 
-                            foreach (Car item in model.Car)
+                            if(model.Car != null)
                             {
-                                var updatecar = context.Car.Where(x => x.CarID == item.CarID).FirstOrDefault();
-                                if (updatecar != null)
+                                foreach (Car item in model.Car)
                                 {
-                                    updatecar.CarID = item.CarID;
-                                    updatecar.CarTypeID = item.CarTypeID;
-                                    updatecar.Chassis = item.Chassis;
-                                    updatecar.JobRequestNoID = item.JobRequestNoID;
-                                    updatecar.LicenceDriveTypeID = item.LicenceDriveTypeID;
-                                    updatecar.LicensePlate = item.LicensePlate;
-                                    updatecar.Remark = item.Remark;
-                                    updatecar.Shaft = item.Shaft;
-                                    updatecar.Tire = item.Tire;
-                                    updatecar.UpdBy = model.UpdBy;
-                                    updatecar.UpdDateTime = DateTime.Now;
-                                    updatecar.Wheel = item.Wheel;
-                                }
-                            }
-                            foreach (Box item in model.Box)
-                            {
-                                var updatebox = context.Box.Where(x => x.BoxID == item.BoxID).FirstOrDefault();
-                                if (updatebox != null)
-                                {
-                                    updatebox.AmountCameraDVR = item.AmountCameraDVR;
-                                    updatebox.APN = item.APN;
-                                    updatebox.BatteryID = item.BatteryID;
-                                    updatebox.CarID = item.CarID;
-                                    updatebox.DeviceID = item.DeviceID;
-                                    updatebox.ElectricVoltID = item.ElectricVoltID;
-                                    updatebox.FirmWareID = item.FirmWareID;
-                                    updatebox.IP = item.IP;
-                                    updatebox.LimitSpeedID = item.LimitSpeedID;
-                                    updatebox.Password = item.Password;
-                                    updatebox.Port = item.Port;
-                                    updatebox.SerialDVRNumber = item.SerialDVRNumber;
-                                    updatebox.SerialNumber = item.SerialNumber;
-                                    updatebox.SimTypeID = item.SimTypeID;
-                                    updatebox.SoundAlertID = item.SoundAlertID;
-                                    updatebox.TimeSendDataID = item.TimeSendDataID;
-                                    updatebox.UpdBy = model.UpdBy;
-                                    updatebox.UpdDateTime = DateTime.Now;
-                                    updatebox.Username = item.Username;
-                                    updatebox.VID = item.VID;
-                                    updatebox.warrantydateEnd = item.warrantydateEnd;
-                                    updatebox.warrantydateStart = item.warrantydateStart;
-                                }
-                            }
-
-                            foreach (BoxDetail item in model.BoxDetail)
-                            {
-                                var updateboxd = context.BoxDetail.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
-                                if (updateboxd != null)
-                                {
-                                    if (item.OptionValue.ToLower() == "false" || item.OptionValue == "")
+                                    var updatecar = context.Car.Where(x => x.CarID == item.CarID).FirstOrDefault();
+                                    if (updatecar != null)
                                     {
-                                        context.BoxDetail.Remove(updateboxd);
+                                        updatecar.CarID = item.CarID;
+                                        updatecar.CarTypeID = item.CarTypeID;
+                                        updatecar.Chassis = item.Chassis;
+                                        updatecar.JobRequestNoID = item.JobRequestNoID;
+                                        updatecar.LicenceDriveTypeID = item.LicenceDriveTypeID;
+                                        updatecar.LicensePlate = item.LicensePlate;
+                                        updatecar.Remark = item.Remark;
+                                        updatecar.Shaft = item.Shaft;
+                                        updatecar.Tire = item.Tire;
+                                        updatecar.UpdBy = model.UpdBy;
+                                        updatecar.UpdDateTime = DateTime.Now;
+                                        updatecar.Wheel = item.Wheel;
                                     }
                                 }
-                                else
+                            }
+                            if(model.Box != null)
+                            {
+                                foreach (Box item in model.Box)
                                 {
-                                    if (item.BoxDetailID == 0)
+                                    var updatebox = context.Box.Where(x => x.BoxID == item.BoxID).FirstOrDefault();
+                                    if (updatebox != null)
                                     {
-                                        item.UpdBy = model.UpdBy;
-                                        item.UpdDateTime = DateTime.Now;
-                                        context.BoxDetail.Add(item);
+                                        updatebox.AmountCameraDVR = item.AmountCameraDVR;
+                                        updatebox.APN = item.APN;
+                                        updatebox.BatteryID = item.BatteryID;
+                                        updatebox.CarID = item.CarID;
+                                        updatebox.DeviceID = item.DeviceID;
+                                        updatebox.ElectricVoltID = item.ElectricVoltID;
+                                        updatebox.FirmWareID = item.FirmWareID;
+                                        updatebox.IP = item.IP;
+                                        updatebox.LimitSpeedID = item.LimitSpeedID;
+                                        updatebox.Password = item.Password;
+                                        updatebox.Port = item.Port;
+                                        updatebox.SerialDVRNumber = item.SerialDVRNumber;
+                                        updatebox.SerialNumber = item.SerialNumber;
+                                        updatebox.SimTypeID = item.SimTypeID;
+                                        updatebox.SoundAlertID = item.SoundAlertID;
+                                        updatebox.TimeSendDataID = item.TimeSendDataID;
+                                        updatebox.UpdBy = model.UpdBy;
+                                        updatebox.UpdDateTime = DateTime.Now;
+                                        updatebox.Username = item.Username;
+                                        updatebox.VID = item.VID;
+                                        updatebox.warrantydateEnd = item.warrantydateEnd;
+                                        updatebox.warrantydateStart = item.warrantydateStart;
                                     }
                                 }
-
                             }
+                            if(model.BoxDetail != null)
+                            {
+                                foreach (BoxDetail item in model.BoxDetail)
+                                {
+                                    var updateboxd = context.BoxDetail.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
+                                    if (updateboxd != null)
+                                    {
+                                        if (item.Selected ==  false || string.IsNullOrEmpty(item.OptionValue))
+                                        {
+                                            context.BoxDetail.Remove(updateboxd);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (item.BoxDetailID == 0)
+                                        {
+                                            item.UpdBy = model.UpdBy;
+                                            item.UpdDateTime = DateTime.Now;
+                                            context.BoxDetail.Add(item);
+                                        }
+                                    }
+                                }
+                            }
+                            
                             if (model.CarIDs != null)
                             {
                                 foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))
@@ -331,7 +339,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     context.Box.Add(model.Box[k]);
                                     context.SaveChanges();
 
-                                    var boxdetails = model.BoxDetail.Where(x => (x.Selected != false) && (x.LicensePlate == model.Car[i].LicensePlate)).ToList();
+                                    var boxdetails = model.BoxDetail.Where(x => (x.LicensePlate == model.Car[i].LicensePlate)).ToList();
                                     for (int j = 0; j < boxdetails.Count; j++)
                                     {
                                         boxdetails[j].InsBy = model.InsBy;
