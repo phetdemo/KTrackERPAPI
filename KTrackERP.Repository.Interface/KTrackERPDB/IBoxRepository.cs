@@ -10,6 +10,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         bool Insert(Box model);
         bool Update(int id, Box model);
         bool Delete(int id);
+        object GetBoxByJobID(int JobID);
 
     }
 }

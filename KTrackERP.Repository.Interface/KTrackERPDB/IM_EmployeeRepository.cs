@@ -5,7 +5,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
 {
     public interface IM_EmployeeRepository
     {
-        IList<M_Employee> Get();
+        object Get();
         object GetById(int id);
         bool Insert(M_Employee model);
         bool Update(int id, M_Employee model);

@@ -29,12 +29,30 @@ namespace KTrackERP.Repository.ERPKTIDB
         {
             try
             {
-                var boxdetials = (from m in context.BoxDetail
-                                  where m.BoxDetailID == id
-                                  select new { m }
-                               ).FirstOrDefault();
-                return boxdetials;
-
+                var boxde = context.BoxDetail.Where(x => x.BoxID == id).ToList();
+                var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                var optionbox = (from o in option
+                                 join b in boxde on o.prmid equals b.MOptionID 
+                                 select new
+                                 {
+                                     optionNameTH = o.thdesc,
+                                     optionNameEN = o.endesc,
+                                     o.prmflag,
+                                     o.prmid,
+                                     BoxDetailID = b?.BoxDetailID ?? 0,
+                                     BoxID = b?.BoxID ?? null,
+                                     JobRequestNoID = b?.JobRequestNoID ?? null,
+                                     InsBy = b?.InsBy ?? null,
+                                     InsDateTime = b?.InsDateTime ?? null,
+                                     MCameraTypeID = b?.MCameraTypeID ?? null,
+                                     MOptionID = b?.MOptionID ?? null,
+                                     OptionValue = b?.OptionValue ?? null,
+                                     Selected = b?.Selected ?? false,
+                                     UpdBy = b?.UpdBy ?? null,
+                                     UpdDateTime = b?.UpdDateTime ?? null,
+                                     LicensePlate = ""
+                                 }).ToList();
+                return  optionbox;
             }
             catch (Exception ex)
             {

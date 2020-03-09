@@ -34,6 +34,10 @@ namespace KTrackERP.Service
         {
             return boxRepository.Insert(model);
         }
+        public object GetBoxByJobID(int JobID)
+        {
+            return boxRepository.GetBoxByJobID(JobID);
+        }
 
         public bool Update(int id, Box model)
         {
