@@ -76,6 +76,7 @@
     <Compile Include="KTrackERPDB\IM_TypeStockRepository.cs" />
     <Compile Include="KTrackERPDB\IM_UnitRepository.cs" />
     <Compile Include="KTrackERPDB\IM_WareHouseRepository.cs" />
+    <Compile Include="KTrackERPDB\IOperationTestRepository.cs" />
     <Compile Include="KTrackERPDB\IServiceChargeRepository.cs" />
     <Compile Include="KTrackERPDB\IStockRepository.cs" />
     <Compile Include="KTrackERPDB\IStockDetailRepository.cs" />

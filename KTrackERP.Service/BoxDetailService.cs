@@ -29,6 +29,10 @@ namespace KTrackERP.Service
         {
             return boxDetailRepository.GetById(id);
         }
+        public object GetBoxDetailByBoxID(int boxid)
+        {
+            return boxDetailRepository.GetBoxDetailByBoxID(boxid);
+        }
 
         public bool Insert(BoxDetail model)
         {

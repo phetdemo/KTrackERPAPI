@@ -53,6 +53,7 @@ namespace KTrackERP.Repository
 
         public DbSet<Master_D> Master_D { get; set; }
         public DbSet<Master_H> Master_H { get; set; }
+        public DbSet<OperationTest> OperationTest { get; set; }
 
 
 

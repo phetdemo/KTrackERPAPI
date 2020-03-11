@@ -93,6 +93,55 @@ namespace KTrackERP.Repository.ERPKTIDB
             }
             return true;
         }
+        public object GetBoxDetailByBoxID(int boxid)
+        {
+            try
+            {
+                var boxde = (from bd in context.BoxDetail
+                             join op in context.OperationTest on bd.BoxDetailID equals op.BoxDetailID into asop
+                             from x in asop.DefaultIfEmpty()
+                             where bd.BoxID == boxid
+                             select new
+                             {
+                                 bd.BoxDetailID,
+                                 bd.BoxID,
+                                 bd.JobRequestNoID,
+                                 bd.MCameraTypeID,
+                                 bd.MOptionID,
+                                 bd.Selected,
+                                 OperationID = x != null ? x.OperationID : (int?)null,
+                                 Tested = x != null ? x.Tested : false,
+                                 InsBy = x != null ? x.InsBy : null,
+                                 UpdBy = x!= null ? x.UpdBy : null
+                             }
+                             ).ToList();
+                             
+                var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                var optionbox = (from o in option
+                                 join b in boxde on o.prmid equals b.MOptionID
+                                 select new
+                                 {
+                                     optionNameTH = o.thdesc,
+                                     optionNameEN = o.endesc,
+                                     BoxDetailID = b?.BoxDetailID ?? 0,
+                                     BoxID = b?.BoxID ?? null,
+                                     JobRequestNoID = b?.JobRequestNoID ?? null,
+                                     MCameraTypeID = b?.MCameraTypeID ?? null,
+                                     MOptionID = b?.MOptionID ?? null,
+                                     Selected = b?.Selected ?? false,
+                                     Tested = b?.Tested ?? false,
+                                     b.InsBy,
+                                     b.UpdBy
+                                 }).ToList();
+                
+                return optionbox;
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
 
         public bool Update(int id, BoxDetail model)
         {
