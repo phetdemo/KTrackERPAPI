@@ -76,6 +76,7 @@
     <Compile Include="IM_TypeStockService.cs" />
     <Compile Include="IM_UnitService.cs" />
     <Compile Include="IM_WareHouseService.cs" />
+    <Compile Include="IOperationTestService.cs" />
     <Compile Include="IServiceChargeService.cs" />
     <Compile Include="IStockDetailService.cs" />
     <Compile Include="IStockService.cs" />

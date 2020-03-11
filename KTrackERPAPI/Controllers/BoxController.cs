@@ -6,6 +6,7 @@ using System.Web.Http.Description;
 
 namespace KTrackERPAPI.Controllers
 {
+    [RoutePrefix("api/Box")]
     public class BoxController : ApiController
     {
         private readonly IBoxService boxService;
@@ -32,6 +33,12 @@ namespace KTrackERPAPI.Controllers
         public IHttpActionResult PostBox(Box obj)
         {
             return Ok(boxService.Insert(obj));
+        }
+        [Route("GetBoxByJobID/{JobID}")]
+        [HttpGet]
+        public IHttpActionResult GetBoxByJobID(int JobID)
+        {
+            return Ok(boxService.GetBoxByJobID(JobID));
         }
 
         // PUT: api/Box/5

@@ -8,6 +8,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         IList<BoxDetail> Get();
         object GetById(int id);
         bool Insert(BoxDetail model);
+        object GetBoxDetailByBoxID(int boxid);
         bool Update(int id, BoxDetail model);
         bool Delete(int id);
     }

@@ -94,6 +94,63 @@ namespace KTrackERP.Repository.ERPKTIDB
             return true;
         }
 
+        public object GetBoxByJobID(int JobID)
+        {
+            try
+            {
+                var box = (from boxs in context.Box
+                           join cars in context.Car on boxs.CarID equals cars.CarID into ascars
+                           join simtype in context.Master_D on boxs.SimTypeID equals simtype.prmid into assimtype
+                           join device in context.Master_D on boxs.DeviceID equals device.prmid into asdevice
+                           from cars in ascars.DefaultIfEmpty()
+                           from simtype in assimtype.DefaultIfEmpty()
+                           from device in asdevice.DefaultIfEmpty()
+                           where boxs.JobRequestNoID == JobID
+                           select new
+                           {
+                               boxs.BoxID,
+                               boxs.JobRequestNoID,
+                               boxs.CarID,
+                               boxs.DeviceID,
+                               boxs.SimTypeID,
+                               boxs.FirmWareID,
+                               boxs.TimeSendDataID,
+                               boxs.ElectricVoltID,
+                               boxs.BatteryID,
+                               boxs.LimitSpeedID,
+                               boxs.SoundAlertID,
+                               boxs.SerialNumber,
+                               boxs.SerialDVRNumber,
+                               boxs.AmountCameraDVR,
+                               boxs.Username,
+                               boxs.Password,
+                               boxs.VID,
+                               boxs.Port,
+                               boxs.IP,
+                               boxs.APN,
+                               boxs.warrantydateStart,
+                               boxs.warrantydateEnd,
+                               boxs.InstallDate,
+                               boxs.UnstallDate,
+                               boxs.InsDateTime,
+                               boxs.InsBy,
+                               boxs.UpdDateTime,
+                               boxs.UpdBy,
+                               LicensePlateName = cars.LicensePlate,
+                               DeviceName = device.thdesc,
+                               SimTypeName = simtype.thdesc
+                           }).ToList();
+
+                return box;
+            }
+            catch(Exception e)
+            {
+                var joke = e.Message;
+                return null;
+                  
+            }
+        }
+
         public bool Update(int id, Box model)
         {
             throw new NotImplementedException();

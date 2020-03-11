@@ -87,6 +87,7 @@
     <Compile Include="ERPKTIDB\M_TypeStockRepository.cs" />
     <Compile Include="ERPKTIDB\M_UnitRepository.cs" />
     <Compile Include="ERPKTIDB\M_WareHouseRepository.cs" />
+    <Compile Include="ERPKTIDB\OperationTestRepository.cs" />
     <Compile Include="ERPKTIDB\ServiceChargeRepository.cs" />
     <Compile Include="ERPKTIDB\StockRepository.cs" />
     <Compile Include="ERPKTIDB\Stock_DetailRepository.cs" />

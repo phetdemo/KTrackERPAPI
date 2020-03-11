@@ -20,7 +20,7 @@ namespace KTrackERP.Service
             throw new NotImplementedException();
         }
 
-        public IList<M_Employee> Get()
+        public object Get()
         {
             return m_EmployeeRepository.Get();
         }

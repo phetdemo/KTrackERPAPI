@@ -78,6 +78,7 @@
     <Compile Include="KTrackERPDB\M_TypeStock.cs" />
     <Compile Include="KTrackERPDB\M_Unit.cs" />
     <Compile Include="KTrackERPDB\M_WareHouse.cs" />
+    <Compile Include="KTrackERPDB\OperationTest.cs" />
     <Compile Include="KTrackERPDB\ServiceCharge.cs" />
     <Compile Include="KTrackERPDB\Stock.cs" />
     <Compile Include="KTrackERPDB\Stock_Detail.cs" />

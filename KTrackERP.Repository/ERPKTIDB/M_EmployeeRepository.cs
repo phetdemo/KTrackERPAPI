@@ -20,10 +20,43 @@ namespace KTrackERP.Repository.ERPKTIDB
             throw new NotImplementedException();
         }
 
-        public IList<M_Employee> Get()
+        public object Get()
         {
-            var emp = context.M_Employee.ToList();
-            return emp;
+            try
+            {
+                var emp = (from e in context.M_Employee
+                           join p in context.Master_D on e.PositionID equals p.prmid into asp
+                           join d in context.Master_D on e.DivisionID equals d.prmid into asd
+                           from p in asp.DefaultIfEmpty()
+                           from d in asd.DefaultIfEmpty()
+                           select new
+                           {
+                               e.Active,
+                               e.DivisionID,
+                               e.Email,
+                               e.EmployeeID,
+                               e.FirstNameEN,
+                               e.FirstNameTH,
+                               e.InsBy,
+                               e.InsDateTime,
+                               e.LastNameEN,
+                               e.LastNameTH,
+                               e.Mobile,
+                               e.PositionID,
+                               e.UpdBy,
+                               e.UpdDateTime,
+                               PositionNameTH = p.thdesc,
+                               PositionNameEN = p.endesc,
+                               DivisionNameTH = d.thdesc,
+                               DivisionNameEN = d.endesc
+                           }).ToList();
+                return emp;
+            }
+            catch(Exception e)
+            {
+                var joker = e.Message;
+                return null;                  
+            }            
         }
 
         public object GetById(int id)
