@@ -13,12 +13,12 @@ namespace KTrackERP.Entity.KTrackERPDB
     {
         [Key]
         public int OperationID { get; set; }
-        public int BoxDetailID { get; set; }        
-        public string OptionValue { get; set; }
+        public long BoxDetailID { get; set; }        
         public bool? Tested { get; set; }
         public DateTime? InsDateTime { get; set; }
         public string InsBy { get; set; }
         public DateTime? UpdDateTime { get; set; }
         public string UpdBy { get; set; }
+        
     }
 }

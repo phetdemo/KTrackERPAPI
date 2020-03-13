@@ -155,6 +155,66 @@ namespace KTrackERP.Repository.ERPKTIDB
                                SimTypeName = simtype.thdesc
                            }).ToList();
 
+
+                //// boxdetailoption
+                //var boxdes = context.BoxDetail.Where(x => x.JobRequestNoID == jobreq.JobRequestNoID).ToList();
+                //var options = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                //var optionbox = (from o in options
+                //                 join b in boxdes on o.prmid equals b.MOptionID
+                //                 select new
+                //                 {
+                //                     optionNameTH = o.thdesc,
+                //                     optionNameEN = o.endesc,
+                //                     o.prmflag,
+                //                     o.prmid,
+                //                     b.BoxDetailID,
+                //                     b.BoxID,
+                //                     b.JobRequestNoID,
+                //                     b.InsBy,
+                //                     b.InsDateTime,
+                //                     b.MCameraTypeID,
+                //                     b.MOptionID,
+                //                     b.OptionValue,
+                //                     b.Selected,
+                //                     b.UpdBy,
+                //                     b.UpdDateTime,
+                //                     LicensePlate = ""
+                //                 }).ToList();
+                //// operation
+                //var boxde = (from bd in context.BoxDetail
+                //             join op in context.OperationTest on bd.BoxDetailID equals op.BoxDetailID 
+                //             where bd.JobRequestNoID == jobreq.JobRequestNoID
+                //             select new
+                //             {
+                //                 bd.BoxDetailID,
+                //                 bd.BoxID,
+                //                 bd.JobRequestNoID,
+                //                 bd.MCameraTypeID,
+                //                 bd.MOptionID,
+                //                 bd.Selected,
+                //                 op.OperationID,
+                //                 op.Tested,
+                //                 op.InsBy,
+                //                 op.UpdBy                             }
+                //             ).ToList();
+                //var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                //var operation = (from o in option
+                //                 join b in boxde on o.prmid equals b.MOptionID
+                //                 select new
+                //                 {
+                //                     optionNameTH = o.thdesc,
+                //                     optionNameEN = o.endesc,
+                //                     BoxDetailID = b?.BoxDetailID ?? 0,
+                //                     BoxID = b?.BoxID ?? null,
+                //                     JobRequestNoID = b?.JobRequestNoID ?? null,
+                //                     MCameraTypeID = b?.MCameraTypeID ?? null,
+                //                     MOptionID = b?.MOptionID ?? null,
+                //                     Selected = b?.Selected ?? false,
+                //                     Tested = b?.Tested ?? false,
+                //                     b.InsBy,
+                //                     b.UpdBy
+                //                 }).ToList();
+
                 return new { jobreq, car, box };
 
             }
@@ -272,8 +332,32 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     {
                                         if (item.Selected ==  false || string.IsNullOrEmpty(item.OptionValue))
                                         {
+                                            var updateoperation = context.OperationTest.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
+                                            if (updateoperation != null)
+                                            {
+                                                context.OperationTest.Remove(updateoperation);
+                                            }
                                             context.BoxDetail.Remove(updateboxd);
+                                            context.SaveChanges();
                                         }
+                                        //else
+                                        //{
+                                        //    var oper = model.OperationTest.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
+                                        //    if (oper != null)
+                                        //    {
+                                        //        var operup = context.OperationTest.Where(x => x.OperationID == oper.OperationID).FirstOrDefault();
+                                        //        if (operup != null)
+                                        //        {
+                                        //            operup.UpdDateTime = DateTime.Now;
+                                        //        }
+                                        //        else
+                                        //        {
+                                        //            oper.InsDateTime = DateTime.Now;
+                                        //            context.OperationTest.Add(oper);
+                                        //            context.SaveChanges();
+                                        //        }
+                                        //    }
+                                        //}
                                     }
                                     else
                                     {
@@ -282,10 +366,29 @@ namespace KTrackERP.Repository.ERPKTIDB
                                             item.UpdBy = model.UpdBy;
                                             item.UpdDateTime = DateTime.Now;
                                             context.BoxDetail.Add(item);
+                                            context.SaveChanges();
                                         }
+                                    }                                    
+                                }
+                            }
+                            if(model.OperationTest != null)
+                            {
+                                foreach(OperationTest itemoper in model.OperationTest)
+                                {
+                                    var operup = context.OperationTest.Where(x => x.OperationID == itemoper.OperationID).FirstOrDefault();
+                                    if (operup != null)
+                                    {
+                                        operup.UpdDateTime = DateTime.Now;
+                                    }
+                                    else
+                                    {
+                                        itemoper.InsDateTime = DateTime.Now;
+                                        context.OperationTest.Add(itemoper);
+                                        context.SaveChanges();
                                     }
                                 }
                             }
+                            
                             
                             if (model.CarIDs != null)
                             {
@@ -333,7 +436,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                 for (int k = i; k < model.Box.Count;)
                                 {
                                     model.Box[k].JobRequestNoID = model.JobRequestNoID;
-                                    model.Box[k].CarID = model.Car[i].CarID;
+                                    //model.Box[k].CarID = model.Car[i].CarID;
                                     model.Box[k].InsDateTime = DateTime.Now;
                                     model.Box[k].InsBy = model.InsBy;
                                     context.Box.Add(model.Box[k]);
