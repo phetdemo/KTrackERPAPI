@@ -110,7 +110,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                  bd.MOptionID,
                                  bd.Selected,
                                  OperationID = x != null ? x.OperationID : (int?)null,
-                                 Tested = x != null ? x.Tested : false,
+                                 Tested = x != null ? x.Tested : null,
                                  InsBy = x != null ? x.InsBy : null,
                                  UpdBy = x!= null ? x.UpdBy : null
                              }
@@ -121,6 +121,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                  join b in boxde on o.prmid equals b.MOptionID
                                  select new
                                  {
+                                     b.OperationID,
                                      optionNameTH = o.thdesc,
                                      optionNameEN = o.endesc,
                                      BoxDetailID = b?.BoxDetailID ?? 0,
@@ -129,7 +130,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                      MCameraTypeID = b?.MCameraTypeID ?? null,
                                      MOptionID = b?.MOptionID ?? null,
                                      Selected = b?.Selected ?? false,
-                                     Tested = b?.Tested ?? false,
+                                     Tested = b?.Tested ?? null,
                                      b.InsBy,
                                      b.UpdBy
                                  }).ToList();

@@ -378,6 +378,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     var operup = context.OperationTest.Where(x => x.OperationID == itemoper.OperationID).FirstOrDefault();
                                     if (operup != null)
                                     {
+                                        operup.Tested = itemoper.Tested;
                                         operup.UpdDateTime = DateTime.Now;
                                     }
                                     else
