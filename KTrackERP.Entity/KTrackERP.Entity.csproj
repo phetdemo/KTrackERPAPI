@@ -82,6 +82,11 @@
     <Compile Include="KTrackERPDB\ServiceCharge.cs" />
     <Compile Include="KTrackERPDB\Stock.cs" />
     <Compile Include="KTrackERPDB\Stock_Detail.cs" />
+    <Compile Include="KTrackERPDB\TechnicCheckList.cs" />
+    <Compile Include="KTrackERPDB\TechnicDVR.cs" />
+    <Compile Include="KTrackERPDB\TechnicELSys.cs" />
+    <Compile Include="KTrackERPDB\TechnicELSysEquip.cs" />
+    <Compile Include="KTrackERPDB\TechnicSensorTemp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
