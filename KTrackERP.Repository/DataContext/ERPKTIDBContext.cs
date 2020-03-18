@@ -54,6 +54,11 @@ namespace KTrackERP.Repository
         public DbSet<Master_D> Master_D { get; set; }
         public DbSet<Master_H> Master_H { get; set; }
         public DbSet<OperationTest> OperationTest { get; set; }
+        public DbSet<TechnicCheckList> TechnicCheckList { get; set; }
+        public DbSet<TechnicDVR> TechnicDVR { get; set; }
+        public DbSet<TechnicELSys> TechnicELSys { get; set; }
+        public DbSet<TechnicELSysEquip> TechnicELSysEquip { get; set; }
+        public DbSet<TechnicSensorTemp> TechnicSensorTemp { get; set; }
 
 
 
