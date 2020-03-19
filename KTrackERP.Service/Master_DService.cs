@@ -42,6 +42,14 @@ namespace KTrackERP.Service
         {
             return master_DRepository.GetOptionBox(boxid);
         }
+        public object GetElectricInternalEquip(int CarID)
+        {
+            return master_DRepository.GetElectricInternalEquip(CarID);
+        }
+        public object GetTechnicCheckList(int CarID)
+        {
+            return master_DRepository.GetTechnicCheckList(CarID);
+        }
 
 
     }

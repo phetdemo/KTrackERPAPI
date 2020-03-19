@@ -56,5 +56,17 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(master_DService.GetOptionBox(boxid));
         }
+        [Route("GetElectricInternalEquip/{CarID}")]
+        [HttpGet]
+        public IHttpActionResult GetElectricInternalEquip(int CarID)
+        {
+            return Ok(master_DService.GetElectricInternalEquip(CarID));
+        }
+        [Route("GetTechnicCheckList/{CarID}")]
+        [HttpGet]
+        public IHttpActionResult GetTechnicCheckList(int CarID)
+        {
+            return Ok(master_DService.GetTechnicCheckList(CarID));
+        }
     }
 }

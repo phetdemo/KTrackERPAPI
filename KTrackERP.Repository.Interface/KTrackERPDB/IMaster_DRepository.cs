@@ -12,5 +12,7 @@ namespace KTrackERP.Repository.Interface.KTrackERPDB
         bool Delete(int id);
         IList<Master_D> GetMasterType(string prmtyp);
         object GetOptionBox(int boxid);
+        object GetElectricInternalEquip(int CarID);
+        object GetTechnicCheckList(int CarID);
     }
 }

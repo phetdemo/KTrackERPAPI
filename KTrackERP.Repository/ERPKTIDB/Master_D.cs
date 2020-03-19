@@ -51,8 +51,6 @@ namespace KTrackERP.Repository.ERPKTIDB
             {
                 var boxde = context.BoxDetail.Where(x => x.BoxID == boxid).ToList();
                 var option = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
-
-
                 var optionbox = (from o in option
                                  join b in boxde on o.prmid equals b.MOptionID into asb
                                  from x in asb.DefaultIfEmpty()
@@ -84,6 +82,72 @@ namespace KTrackERP.Repository.ERPKTIDB
                 return null;
             }
         }
+        public object GetElectricInternalEquip(int CarID)
+        {
+            try
+            {
+                var equip = context.TechnicELSysEquip.Where(x => x.CarID == CarID).ToList();
+                var m = context.Master_D.Where(x => x.prmtyp == "ElectricSysInEquip").ToList();
+
+                var internalequip = (from o in m
+                                 join b in equip on o.prmid equals b.MELInternalID into asb
+                                 from x in asb.DefaultIfEmpty()
+                                 select new
+                                 {
+                                     EquipNameTH = o.thdesc,
+                                     EquipNameEN = o.endesc,
+                                     o.prmid,
+                                     MELInternalID = x?.MELInternalID ?? 0,
+                                     CarID = x?.CarID ?? null,                                     
+                                     InsBy = x?.InsBy ?? null,
+                                     InsDateTime = x?.InsDateTime ?? null,
+                                     IsNormal = x?.IsNormal ?? null,
+                                     UpdBy = x?.UpdBy ?? null,
+                                     UpdDateTime = x?.UpdDateTime ?? null,
+                                     Remark = x?.Remark ?? null
+                                 }).ToList();
+                return new { internalequip };
+
+            }
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+        public object GetTechnicCheckList(int CarID)
+        {
+            try
+            {
+                var checklist = context.TechnicCheckList.Where(x => x.CarID == CarID).ToList();
+                var m = context.Master_D.Where(x => x.prmtyp == "Option").ToList();
+                var technicchecklist = (from o in m
+                                 join b in checklist on o.prmid equals b.MOption into asb
+                                 from x in asb.DefaultIfEmpty()
+                                 select new
+                                 {
+                                     optionNameTH = o.thdesc,
+                                     optionNameEN = o.endesc,
+                                     o.prmid,
+                                     MOption = x?.MOption ?? 0,
+                                     CarID = x?.CarID ?? null,
+                                     InsBy = x?.InsBy ?? null,
+                                     InsDateTime = x?.InsDateTime ?? null,
+                                     Checked = x?.Checked ?? null,
+                                     UpdBy = x?.UpdBy ?? null,
+                                     UpdDateTime = x?.UpdDateTime ?? null,
+                                     Remark = x?.Remark ?? null
+                                 }).ToList();
+                return new { technicchecklist };
+            }
+            
+             catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+        
         public bool Insert(Entity.KTrackERPDB.Master_D model)
         {
             try
