@@ -147,6 +147,96 @@ namespace KTrackERP.Repository.ERPKTIDB
                 return null;
             }
         }
+        public object GetTechicELSys(int CarID)
+        {
+            try
+            {
+                var ELSys = context.TechnicELSys.Where(x => x.CarID == CarID).ToList();
+                var m = context.Master_D.Where(x => x.prmtyp == "ELCut").ToList();
+                var techniccelsys = (from o in m
+                                        join b in ELSys on o.prmid equals b.MELCut into asb
+                                        from x in asb.DefaultIfEmpty()
+                                        select new
+                                        {
+                                            optionNameTH = o.thdesc,
+                                            optionNameEN = o.endesc,
+                                            o.prmid,
+                                            MELCut = x?.MELCut ?? 0,
+                                            CarID = x?.CarID ?? null,
+                                            InsBy = x?.InsBy ?? null,
+                                            InsDateTime = x?.InsDateTime ?? null,                                            
+                                            UpdBy = x?.UpdBy ?? null,
+                                            UpdDateTime = x?.UpdDateTime ?? null,
+                                            DCPowerAfterStart = x?.DCPowerAfterStart ?? null,
+                                            DCPowerBeforStart = x?.DCPowerBeforStart ?? null,
+                                            DCPowerWhileStart = x?.DCPowerWhileStart ?? null,
+                                            x.ELSysID,
+                                            GroudAfterStart = x?.GroudAfterStart ?? null,
+                                            GroudBeforStart = x?.GroudBeforStart ?? null,
+                                            GroudWhileStart = x?.GroudWhileStart ?? null,
+                                            OnEngineOnAfterStart = x?.OnEngineOnAfterStart ?? null,
+                                            OnEngineOnBeforStart = x?.OnEngineOnBeforStart ?? null,
+                                            OnEngineOnWhileStart = x?.OnEngineOnWhileStart ?? null,
+                                            TankFuleModify = x?.TankFuleModify ?? null,
+                                            TankFuleStand = x?.TankFuleStand ?? null,
+                                            TankMofifyAnalog = x?.TankMofifyAnalog ?? null,
+                                            TankStandAnalog = x?.TankStandAnalog ?? null,
+                                        }).ToList();
+                return new { techniccelsys };
+            }
+
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+        public object GetTechnicDVR(int CarID)
+        {
+            try
+            {
+                var dvr = context.TechnicDVR.Where(x => x.CarID == CarID).ToList();
+                var m = context.Master_D.Where(x => x.prmtyp == "DirectionDVR").ToList();
+                var technicdvr = (from o in m
+                                     join b in dvr on o.prmid equals b.MDVRDirectionID into asb
+                                     from x in asb.DefaultIfEmpty()
+                                     select new
+                                     {
+                                         optionNameTH = o.thdesc,
+                                         optionNameEN = o.endesc,
+                                         o.prmid,
+                                         MDVRDirectionID = x?.MDVRDirectionID ?? 0,
+                                         CarID = x?.CarID ?? null,
+                                         InsBy = x?.InsBy ?? null,
+                                         InsDateTime = x?.InsDateTime ?? null,
+                                         UpdBy = x?.UpdBy ?? null,
+                                         UpdDateTime = x?.UpdDateTime ?? null,                                         
+                                         x.TechDVRID,
+                                         Remark = x?.Remark ?? null
+                                     }).ToList();
+                return new { technicdvr };
+            }
+
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
+        public object GetTechnicSensorTemp(int CarID)
+        {
+            try
+            {
+                var technicsensor = context.TechnicSensorTemp.Where(x => x.CarID == CarID).FirstOrDefault();
+                return new { technicsensor };
+            }
+
+            catch (Exception ex)
+            {
+                var joke = ex.Message;
+                return null;
+            }
+        }
         
         public bool Insert(Entity.KTrackERPDB.Master_D model)
         {

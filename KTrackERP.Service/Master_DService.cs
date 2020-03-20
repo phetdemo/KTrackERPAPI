@@ -50,6 +50,18 @@ namespace KTrackERP.Service
         {
             return master_DRepository.GetTechnicCheckList(CarID);
         }
+        public object GetTechicELSys(int CarID)
+        {
+            return master_DRepository.GetTechicELSys(CarID);
+        }
+        public object GetTechnicDVR(int CarID)
+        {
+            return master_DRepository.GetTechnicDVR(CarID);
+        }
+        public object GetTechnicSensorTemp(int CarID)
+        {
+            return master_DRepository.GetTechnicSensorTemp(CarID);
+        }
 
 
     }

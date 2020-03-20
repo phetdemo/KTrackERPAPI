@@ -68,5 +68,23 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(master_DService.GetTechnicCheckList(CarID));
         }
+        [Route("GetTechicELSys/{CarID}")]
+        [HttpGet]
+        public IHttpActionResult GetTechicELSys(int CarID)
+        {
+            return Ok(master_DService.GetTechicELSys(CarID));
+        }
+        [Route("GetTechnicDVR/{CarID}")]
+        [HttpGet]
+        public IHttpActionResult GetTechnicDVR(int CarID)
+        {
+            return Ok(master_DService.GetTechnicDVR(CarID));
+        }
+        [Route("GetTechnicSensorTemp/{CarID}")]
+        [HttpGet]
+        public IHttpActionResult GetTechnicSensorTemp(int CarID)
+        {
+            return Ok(master_DService.GetTechnicSensorTemp(CarID));
+        }
     }
 }
