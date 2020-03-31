@@ -45,7 +45,13 @@
     <Compile Include="KTrackERPDB\Box.cs" />
     <Compile Include="KTrackERPDB\BoxDetail.cs" />
     <Compile Include="KTrackERPDB\Car.cs" />
+    <Compile Include="KTrackERPDB\DVR.cs" />
+    <Compile Include="KTrackERPDB\DVRCamera.cs" />
     <Compile Include="KTrackERPDB\File.cs" />
+    <Compile Include="KTrackERPDB\HardwareTest.cs" />
+    <Compile Include="KTrackERPDB\HardwareTestDVR.cs" />
+    <Compile Include="KTrackERPDB\HardwareTestEquip.cs" />
+    <Compile Include="KTrackERPDB\HardwareTestSensorTemp.cs" />
     <Compile Include="KTrackERPDB\InstallMent.cs" />
     <Compile Include="KTrackERPDB\JobRequest.cs" />
     <Compile Include="KTrackERPDB\JobRequestClose.cs" />

@@ -269,7 +269,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                             update.UpdBy = model.UpdBy;
                             update.UpdDateTime = DateTime.Now;
 
-                            if(model.Car != null)
+                            if (model.Car != null)
                             {
                                 foreach (Car item in model.Car)
                                 {
@@ -291,7 +291,7 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     }
                                 }
                             }
-                            if(model.Box != null)
+                            if (model.Box != null)
                             {
                                 foreach (Box item in model.Box)
                                 {
@@ -323,14 +323,14 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     }
                                 }
                             }
-                            if(model.BoxDetail != null)
+                            if (model.BoxDetail != null)
                             {
                                 foreach (BoxDetail item in model.BoxDetail)
                                 {
                                     var updateboxd = context.BoxDetail.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
                                     if (updateboxd != null)
                                     {
-                                        if (item.Selected ==  false || string.IsNullOrEmpty(item.OptionValue))
+                                        if (item.Selected == false || string.IsNullOrEmpty(item.OptionValue))
                                         {
                                             var updateoperation = context.OperationTest.Where(x => x.BoxDetailID == item.BoxDetailID).FirstOrDefault();
                                             if (updateoperation != null)
@@ -368,12 +368,12 @@ namespace KTrackERP.Repository.ERPKTIDB
                                             context.BoxDetail.Add(item);
                                             context.SaveChanges();
                                         }
-                                    }                                    
+                                    }
                                 }
                             }
-                            if(model.OperationTest != null)
+                            if (model.OperationTest != null)
                             {
-                                foreach(OperationTest itemoper in model.OperationTest)
+                                foreach (OperationTest itemoper in model.OperationTest)
                                 {
                                     var operup = context.OperationTest.Where(x => x.OperationID == itemoper.OperationID).FirstOrDefault();
                                     if (operup != null)
@@ -389,8 +389,190 @@ namespace KTrackERP.Repository.ERPKTIDB
                                     }
                                 }
                             }
-                            
-                            
+                            if (model.TechnicCheckList != null)
+                            {
+                                foreach (TechnicCheckList technicCheck in model.TechnicCheckList)
+                                {
+                                    var dataCheck = context.TechnicCheckList.Where(x => x.CheckListID == technicCheck.CheckListID).FirstOrDefault();
+                                    if (dataCheck != null)
+                                    {
+
+                                        dataCheck.Remark = technicCheck.Remark;
+                                        dataCheck.Checked = technicCheck.Checked;
+                                        dataCheck.UpdDateTime = DateTime.Now;
+                                    }
+                                    else
+                                    {
+                                        technicCheck.InsDateTime = DateTime.Now;
+                                        context.TechnicCheckList.Add(technicCheck);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.TechnicDVR != null)
+                            {
+                                foreach (TechnicDVR technicDVR in model.TechnicDVR)
+                                {
+                                    var dataDVR = context.TechnicDVR.Where(x => x.TechDVRID == technicDVR.TechDVRID).FirstOrDefault();
+                                    if (dataDVR != null)
+                                    {
+                                        dataDVR.UpdDateTime = DateTime.Now;
+                                        dataDVR.MDVRDirectionID = technicDVR.MDVRDirectionID;
+                                        dataDVR.Remark = technicDVR.Remark;
+                                    }
+                                    else
+                                    {
+                                        technicDVR.InsDateTime = DateTime.Now;
+                                        context.TechnicDVR.Add(technicDVR);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.TechnicELSys != null)
+                            {
+                                foreach (TechnicELSys technicEL in model.TechnicELSys)
+                                {
+                                    var dataEL = context.TechnicELSys.Where(x => x.ELSysID == technicEL.ELSysID).FirstOrDefault();
+                                    if (dataEL != null)
+                                    {
+                                        dataEL.UpdDateTime = DateTime.Now;
+                                        dataEL.DCPowerAfterStart = technicEL.DCPowerAfterStart;
+                                        dataEL.DCPowerBeforStart = technicEL.DCPowerBeforStart;
+                                        dataEL.DCPowerWhileStart = technicEL.DCPowerWhileStart;
+                                        dataEL.GroudAfterStart = technicEL.GroudAfterStart;
+                                        dataEL.GroudBeforStart = technicEL.GroudBeforStart;
+                                        dataEL.GroudWhileStart = technicEL.GroudWhileStart;
+                                        dataEL.MELCut = technicEL.MELCut;
+                                        dataEL.OnEngineOnAfterStart = technicEL.OnEngineOnAfterStart;
+                                        dataEL.OnEngineOnBeforStart = technicEL.OnEngineOnBeforStart;
+                                    }
+                                    else
+                                    {
+                                        technicEL.InsDateTime = DateTime.Now;
+                                        context.TechnicELSys.Add(technicEL);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.TechnicELSysEquip != null)
+                            {
+                                foreach (TechnicELSysEquip eLSysEquip in model.TechnicELSysEquip)
+                                {
+                                    var dataEquip = context.TechnicELSysEquip.Where(x => x.ELSysEquipID == eLSysEquip.ELSysEquipID).FirstOrDefault();
+                                    if (dataEquip != null)
+                                    {
+                                        dataEquip.UpdDateTime = DateTime.Now;
+                                        dataEquip.IsNormal = eLSysEquip.IsNormal;
+                                        dataEquip.Remark = eLSysEquip.Remark;
+                                    }
+                                    else
+                                    {
+                                        eLSysEquip.InsDateTime = DateTime.Now;
+                                        context.TechnicELSysEquip.Add(eLSysEquip);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.TechnicSensorTemp != null)
+                            {
+                                foreach (TechnicSensorTemp technicSensor in model.TechnicSensorTemp)
+                                {
+                                    var dataTemp = context.TechnicSensorTemp.Where(x => x.SensorTempID == technicSensor.SensorTempID).FirstOrDefault();
+                                    if (dataTemp != null)
+                                    {
+                                        dataTemp.UpdDateTime = DateTime.Now;
+                                        dataTemp.Sensor1 = technicSensor.Sensor1;
+                                        dataTemp.Sensor2 = technicSensor.Sensor2;
+                                        dataTemp.Sensor3 = technicSensor.Sensor3;
+                                        dataTemp.Sensor4 = technicSensor.Sensor4;
+                                    }
+                                    else
+                                    {
+                                        technicSensor.InsDateTime = DateTime.Now;
+                                        context.TechnicSensorTemp.Add(technicSensor);
+                                        context.SaveChanges();
+                                    }
+
+                                }
+                            }
+                            if (model.HardwareTest != null)
+                            {
+                                foreach (HardwareTest hardwareTest in model.HardwareTest)
+                                {
+                                    var dataht = context.HardwareTest.Where(x => x.HardwareTestID == hardwareTest.HardwareTestID).FirstOrDefault();
+                                    if (dataht != null)
+                                    {
+                                        dataht.UpdDateTime = DateTime.Now;
+                                        dataht.Tested = hardwareTest.Tested;
+                                    }
+                                    else
+                                    {
+                                        hardwareTest.InsDateTime = DateTime.Now;
+                                        context.HardwareTest.Add(hardwareTest);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.HardwareTestDVR != null)
+                            {
+                                foreach (HardwareTestDVR testDVR in model.HardwareTestDVR)
+                                {
+                                    var datahdvr = context.HardwareTestDVR.Where(x => x.HardwareDVRID == testDVR.HardwareDVRID).FirstOrDefault();
+                                    if (datahdvr != null)
+                                    {
+                                        datahdvr.UpdDateTime = DateTime.Now;
+                                        datahdvr.Tested = testDVR.Tested;
+                                    }
+                                    else
+                                    {
+                                        testDVR.InsDateTime = DateTime.Now;
+                                        context.HardwareTestDVR.Add(testDVR);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.HardwareTestEquip != null)
+                            {
+                                foreach (HardwareTestEquip equip in model.HardwareTestEquip)
+                                {
+                                    var dataequip = context.HardwareTestEquip.Where(x => x.HardwareTestEquipID == equip.HardwareTestEquipID).FirstOrDefault();
+                                    if (dataequip != null)
+                                    {
+                                        dataequip.UpdDateTime = DateTime.Now;
+                                        dataequip.Tested = equip.Tested;
+                                    }
+                                    else
+                                    {
+                                        equip.InsDateTime = DateTime.Now;
+                                        context.HardwareTestEquip.Add(equip);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+                            if (model.HardwareTestSensorTemp != null)
+                            {
+                                foreach (HardwareTestSensorTemp sensorTemp in model.HardwareTestSensorTemp)
+                                {
+                                    var datasensor = context.HardwareTestSensorTemp.Where(x => x.HardwareTestSensorTempID == sensorTemp.HardwareTestSensorTempID).FirstOrDefault();
+                                    if (datasensor != null)
+                                    {
+                                        datasensor.UpdDateTime = DateTime.Now;
+                                        datasensor.Sensor1 = sensorTemp.Sensor1;
+                                        datasensor.Sensor2 = sensorTemp.Sensor2;
+                                        datasensor.Sensor3 = sensorTemp.Sensor3;
+                                        datasensor.Sensor4 = sensorTemp.Sensor4;
+                                    }
+                                    else
+                                    {
+                                        sensorTemp.InsDateTime = DateTime.Now;
+                                        context.HardwareTestSensorTemp.Add(sensorTemp);
+                                        context.SaveChanges();
+                                    }
+                                }
+                            }
+
+
+
                             if (model.CarIDs != null)
                             {
                                 foreach (string carid in model.CarIDs.Split(',').Where(x => x != "" || x != null))

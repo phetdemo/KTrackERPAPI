@@ -18,5 +18,9 @@ namespace KTrackERP.Service.Interface
         object GetTechicELSys(int CarID);
         object GetTechnicDVR(int CarID);
         object GetTechnicSensorTemp(int CarID);
+        object GetHardwareTest(int BoxID);
+        object GetHardwareTestEquip(int BoxID);
+        object GetHardwareTestDVR(int BoxID);
+        object GetHardwareTestSensor(int BoxID);
     }
 }

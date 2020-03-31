@@ -62,7 +62,22 @@ namespace KTrackERP.Service
         {
             return master_DRepository.GetTechnicSensorTemp(CarID);
         }
-
+        public object GetHardwareTest(int BoxID)
+        {
+            return master_DRepository.GetHardwareTest(BoxID);
+        }
+        public object GetHardwareTestEquip(int BoxID)
+        {
+            return master_DRepository.GetHardwareTestEquip(BoxID);
+        }
+        public object GetHardwareTestDVR(int BoxID)
+        {
+            return master_DRepository.GetHardwareTestDVR(BoxID);
+        }
+        public object GetHardwareTestSensor(int BoxID)
+        {
+            return master_DRepository.GetHardwareTestSensor(BoxID);
+        }
 
     }
 }

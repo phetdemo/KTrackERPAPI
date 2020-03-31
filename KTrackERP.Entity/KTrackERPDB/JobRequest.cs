@@ -55,6 +55,26 @@ namespace KTrackERP.Entity.KTrackERPDB
         [NotMapped]
         public List<OperationTest> OperationTest { get; set; }
         [NotMapped]
+        public List<TechnicCheckList> TechnicCheckList { get; set; }
+        [NotMapped]
+        public List<TechnicDVR> TechnicDVR { get; set; }
+        [NotMapped]
+        public List<TechnicELSys> TechnicELSys { get; set; }
+        [NotMapped]
+        public List<TechnicELSysEquip> TechnicELSysEquip { get; set; }
+
+        [NotMapped]
+        public List<TechnicSensorTemp> TechnicSensorTemp { get; set; }
+        [NotMapped]
+        public List<HardwareTest> HardwareTest { get; set; }
+        [NotMapped]
+        public List<HardwareTestDVR> HardwareTestDVR { get; set; }
+        [NotMapped]
+        public List<HardwareTestEquip> HardwareTestEquip { get; set; }
+        [NotMapped]
+        public List<HardwareTestSensorTemp> HardwareTestSensorTemp { get; set; }
+
+        [NotMapped]
         public string BoxIDs { get; set; }
         [NotMapped]
         public string CarIDs { get; set; }

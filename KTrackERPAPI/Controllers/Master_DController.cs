@@ -86,5 +86,29 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(master_DService.GetTechnicSensorTemp(CarID));
         }
+        [Route("GetHardwareTest/{BoxID}")]
+        [HttpGet]
+        public IHttpActionResult GetHardwareTest(int BoxID)
+        {
+            return Ok(master_DService.GetHardwareTest(BoxID));
+        }
+        [Route("GetHardwareTestEquip/{BoxID}")]
+        [HttpGet]
+        public IHttpActionResult GetHardwareTestEquip(int BoxID)
+        {
+            return Ok(master_DService.GetHardwareTestEquip(BoxID));
+        }
+        [Route("GetHardwareTestDVR/{BoxID}")]
+        [HttpGet]
+        public IHttpActionResult GetHardwareTestDVR(int BoxID)
+        {
+            return Ok(master_DService.GetHardwareTestDVR(BoxID));
+        }
+        [Route("GetHardwareTestSensor/{BoxID}")]
+        [HttpGet]
+        public IHttpActionResult GetHardwareTestSensor(int BoxID)
+        {
+            return Ok(master_DService.GetHardwareTestSensor(BoxID));
+        }
     }
 }
