@@ -71,5 +71,11 @@ namespace KTrackERPAPI.Controllers
         {
             return Ok(jobRequestService.GetHistoryJob(jobtype, jobstatus));
         }
+        [Route("GetJobRef")]
+        [HttpGet]
+        public IHttpActionResult GetJobRef()
+        {
+            return Ok(jobRequestService.GetJobRef());
+        }
     }
 }

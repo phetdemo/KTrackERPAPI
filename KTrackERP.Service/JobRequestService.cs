@@ -55,5 +55,9 @@ namespace KTrackERP.Service
         {
             return jobRequestRepository.GetWorkListAll();
         }
+        public object GetJobRef()
+        {
+            return jobRequestRepository.GetJobRef();
+        }
     }
 }
