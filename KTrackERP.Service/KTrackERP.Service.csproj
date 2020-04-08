@@ -45,6 +45,8 @@
     <Compile Include="BoxService.cs" />
     <Compile Include="CarService.cs" />
     <Compile Include="FileService.cs" />
+    <Compile Include="HStockDetailService.cs" />
+    <Compile Include="HStockService.cs" />
     <Compile Include="InstallMentService.cs" />
     <Compile Include="JobRequestCloseService.cs" />
     <Compile Include="JobRequestService.cs" />
@@ -90,6 +92,10 @@
     <ProjectReference Include="..\KTrackERP.Repository.Interface\KTrackERP.Repository.Interface.csproj">
       <Project>{C515443D-EDF4-41CA-8AEA-48E02ECCEA5E}</Project>
       <Name>KTrackERP.Repository.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KTrackERP.Repository\KTrackERP.Repository.csproj">
+      <Project>{30BAB804-ACBC-4FA6-8814-4DC85FF66AE4}</Project>
+      <Name>KTrackERP.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\KTrackERP.Service.Interface\KTrackERP.Service.Interface.csproj">
       <Project>{8142B693-987D-4E38-B75F-F3002F9AFB64}</Project>

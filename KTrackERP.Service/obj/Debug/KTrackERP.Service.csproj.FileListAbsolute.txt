@@ -34,3 +34,8 @@ C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrac
 C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrackERP.Repository.Interface.pdb
 C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrackERP.Service.Interface.pdb
 C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\obj\Debug\KTrackERP.Service.csproj.CopyComplete
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrackERP.Repository.dll
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\EntityFramework.dll
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrackERP.Repository.pdb
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\KTrackERP.Repository.dll.config
+C:\Users\Joker\Desktop\ProjectERP\KTrackERPAPI\KTrackERP.Service\bin\Debug\EntityFramework.xml

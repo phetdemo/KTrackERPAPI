@@ -54,6 +54,8 @@
     <Compile Include="DataContext\ERPKTIDBContext.cs" />
     <Compile Include="ERPKTIDB\BoxDetailRopository.cs" />
     <Compile Include="ERPKTIDB\BoxRepository.cs" />
+    <Compile Include="ERPKTIDB\HStockDetailRepository.cs" />
+    <Compile Include="ERPKTIDB\HStockRepository.cs" />
     <Compile Include="ERPKTIDB\Master_D.cs" />
     <Compile Include="ERPKTIDB\Master_H.cs" />
     <Compile Include="ERPKTIDB\M_JobTypeRepository.cs" />

@@ -250,6 +250,7 @@
     <Compile Include="Controllers\M_TypeStockController.cs" />
     <Compile Include="Controllers\M_UnitController.cs" />
     <Compile Include="Controllers\M_WareHouseController.cs" />
+    <Compile Include="Controllers\RequsitionController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ServiceChargeController.cs" />
     <Compile Include="Controllers\StockController.cs" />

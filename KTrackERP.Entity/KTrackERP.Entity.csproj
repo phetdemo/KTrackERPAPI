@@ -52,6 +52,8 @@
     <Compile Include="KTrackERPDB\HardwareTestDVR.cs" />
     <Compile Include="KTrackERPDB\HardwareTestEquip.cs" />
     <Compile Include="KTrackERPDB\HardwareTestSensorTemp.cs" />
+    <Compile Include="KTrackERPDB\HStock.cs" />
+    <Compile Include="KTrackERPDB\HStockDetail.cs" />
     <Compile Include="KTrackERPDB\InstallMent.cs" />
     <Compile Include="KTrackERPDB\JobRequest.cs" />
     <Compile Include="KTrackERPDB\JobRequestClose.cs" />

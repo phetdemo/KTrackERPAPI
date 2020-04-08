@@ -132,6 +132,13 @@ namespace KTrackERPAPI
             container.RegisterType<IMaster_HService, Master_HService>();
             container.RegisterType<IMaster_HRepository, Master_H>();
 
+            container.RegisterType<IHStockService, HStockService>();
+            container.RegisterType<IHStockRepository, HStockRepository>();
+
+            container.RegisterType<IHStockDetailRepository, HStockDetailRepository>();
+            container.RegisterType<IHStockDetailService, HStockDetailService>();
+
+
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

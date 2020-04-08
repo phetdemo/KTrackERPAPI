@@ -65,6 +65,7 @@ namespace KTrackERP.Repository
         public DbSet<HardwareTestEquip> HardwareTestEquip { get; set; }
         public DbSet<DVR> DVR { get; set; }
         public DbSet<DVRCamera> DVRCamera { get; set; }
-
+        public DbSet<HStock> HStock { get; set; }
+        public DbSet<HStockDetail> HStockDetail { get; set; }
     }
 }

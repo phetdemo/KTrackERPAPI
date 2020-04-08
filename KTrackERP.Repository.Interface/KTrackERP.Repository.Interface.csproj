@@ -45,6 +45,8 @@
     <Compile Include="KTrackERPDB\IBoxRepository.cs" />
     <Compile Include="KTrackERPDB\ICarRepository.cs" />
     <Compile Include="KTrackERPDB\IFileRepository.cs" />
+    <Compile Include="KTrackERPDB\IHStockDetailRepository.cs" />
+    <Compile Include="KTrackERPDB\IHStockRepository.cs" />
     <Compile Include="KTrackERPDB\IInstallMentRepository.cs" />
     <Compile Include="KTrackERPDB\IJobRequestRepository.cs" />
     <Compile Include="KTrackERPDB\IJobRequestCloseRepository.cs" />
