@@ -9,6 +9,7 @@ namespace KTrackERP.Entity.KTrackERPDB
     {
         [Key]
         public int StockID { get; set; }
+        public int WareHouseID { get; set; }
         public int SupplierID { get; set; }
         public int TypeStockID { get; set; }
         public string StockBy { get; set; }
